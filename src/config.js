@@ -9,4 +9,5 @@ GC.h = 0;
 GC.w_mid = 0;
 GC.h_mid = 0;
 
-GC.TransTime = 0.5;
+GC.transTime = 0.5;
+GC.StagePageCount = 3;

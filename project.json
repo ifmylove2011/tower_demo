@@ -16,6 +16,9 @@
         "src/config.js",
         "src/MainMenu/MainMenu.js",
         "src/MainMenu/Layer/MainMenuBgLayer.js",
-        "src/MainMenu/Layer/MainMenuTouchLayer.js"
+        "src/MainMenu/Layer/MainMenuTouchLayer.js",
+        "src/ChooseStage/ChooseStage.js",
+        "src/ChooseStage/Layer/ChooseStageTouchLayer.js",
+        "src/ChooseStage/Layer/ChooseStageBgLayer.js"
     ]
 }

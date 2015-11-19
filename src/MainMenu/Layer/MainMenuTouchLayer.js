@@ -35,7 +35,9 @@ var MainMenuTouchLayer = cc.Layer.extend({
             btnStartDisable,
             function () {
                 trace("点击了开始");
-            }
+                var scene = new ChooseStageScene();
+                cc.director.runScene(new cc.TransitionFade(GC.transTime,scene));
+            }.bind(this)
         );
         //菜单所在位置
         var menu = new cc.Menu(menuStart);
@@ -45,6 +47,7 @@ var MainMenuTouchLayer = cc.Layer.extend({
         });
         this.addChild(menu);
 
+        this.btnStart = menuStart;
     }
 
 });
