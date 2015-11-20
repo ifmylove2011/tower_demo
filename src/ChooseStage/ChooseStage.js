@@ -10,7 +10,6 @@ var ChooseStageLayer = cc.Layer.extend({
         this._super();
         this.loadBgLayer();
         this.addTouchLayer();
-        trace("运行到2");
         return true;
     },
     loadBgLayer: function () {
@@ -26,7 +25,6 @@ var ChooseStageLayer = cc.Layer.extend({
 var ChooseStageScene = cc.Scene.extend({
         onEnter: function () {
             this._super();
-            trace("运行到1");
             var layer = new ChooseStageLayer();
             this.addChild(layer);
         }

@@ -9,7 +9,8 @@ var MainMenuLayer = cc.Layer.extend({
         this._super();
         this.loadBgLayer();
         this.addTouchLayer();
-        this.showInfo();
+        this.loadResource();
+        return true;
     },
     /* º”‘ÿ±≥æ∞ */
     loadBgLayer: function () {
@@ -21,8 +22,10 @@ var MainMenuLayer = cc.Layer.extend({
         this.touchLayer = new MainMenuTouchLayer();
         this.addChild(this.touchLayer);
     },
-    showInfo: function () {
+    loadResource: function () {
         trace("width", GC.w, "height", GC.h);
+        cc.textureCache.addImage(res.Choose_Stage_png);
+        cc.spriteFrameCache.addSpriteFrames(res.Choose_Stage_plist);
     }
 });
 

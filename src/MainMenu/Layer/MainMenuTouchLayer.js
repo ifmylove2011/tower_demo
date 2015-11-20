@@ -9,20 +9,19 @@ var MainMenuTouchLayer = cc.Layer.extend({
         this._super();
         this.addTitle();
         this.addMenu();
+        return true;
     },
     addTitle: function () {
-        this.title = new cc.LabelBMFont("浩劫", res.Mini_Xingkai_CH_fnt);
+        this.title = new cc.Sprite(res.Game_Title_png);
         this.title.attr({
             x: GC.w_mid,
-            y: GC.h_mid,
-            scale: 4,
-            color: cc.color.RED
+            y: GC.h_mid + this.title.height/2
         });
         this.addChild(this.title, 2);
         //标题动作
         var move = cc.moveBy(0.5, cc.p(20));
         var action = cc.sequence(move, move.reverse()).repeatForever();
-        //titleLabel.runAction(action);
+        //this.title.runAction(action);
     },
     addMenu: function () {
         var btnStartNormal = new cc.Sprite(res.Menu_Main_Start_png);
@@ -43,7 +42,7 @@ var MainMenuTouchLayer = cc.Layer.extend({
         var menu = new cc.Menu(menuStart);
         menu.attr({
             x: GC.w_mid,
-            y: this.title.y -100
+            y: this.title.y -this.title.height
         });
         this.addChild(menu);
 

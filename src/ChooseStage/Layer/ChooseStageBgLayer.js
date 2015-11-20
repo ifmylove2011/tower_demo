@@ -6,6 +6,7 @@ var ChooseStageBgLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this.loadBg();
+        return true;
     },
     loadBg: function () {
         var bg = new cc.Sprite(res.Global_Bg_png);

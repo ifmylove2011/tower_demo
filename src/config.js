@@ -11,3 +11,8 @@ GC.h_mid = 0;
 
 GC.transTime = 0.5;
 GC.StagePageCount = 3;
+GC.StageItemRow = 2;
+GC.StageItemCol = 3;
+
+GC.DIR_HORIZONTAL = 0;
+GC.DIR_VERTICAL = 1;
