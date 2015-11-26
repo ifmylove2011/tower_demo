@@ -88,7 +88,10 @@ var StagePage = cc.Node.extend({
         this.addChild(menu);
     },
     /* 加载游戏场景 */
-    onGameStart: function () {
+    onGameStart: function (sender) {
         trace("start");
+        var stage = sender;
+        cc.sys.localStorage.setItem("nextLevel",stage.getTag());
+
     }
 });
