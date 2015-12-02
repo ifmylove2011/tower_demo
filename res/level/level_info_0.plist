@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>level_info</key>
+	<dict>
+		<key>sum_money</key>
+		<integer>1000</integer>
+		<key>curlevel</key>
+		<string>level_info_0.plist</string>
+		<key>nextlevel</key>
+		<string>level_info_0.plist</string>
+		<key>level_group</key>
+		<dict>
+			<key>1</key>
+			<dict>
+				<key>type1Num</key>
+				<integer>10</integer>
+				<key>type1Hp</key>
+				<integer>3</integer>
+				<key>type2Num</key>
+				<integer>0</integer>
+				<key>type2Hp</key>
+				<integer>2</integer>
+				<key>type3Num</key>
+				<integer>0</integer>
+				<key>type3Hp</key>
+				<integer>1</integer>
+			</dict>
+			<key>2</key>
+			<dict>
+				<key>type1Num</key>
+				<integer>0</integer>
+				<key>type1Hp</key>
+				<integer>3</integer>
+				<key>type2Num</key>
+				<integer>1</integer>
+				<key>type2Hp</key>
+				<integer>2</integer>
+				<key>type3Num</key>
+				<integer>2</integer>
+				<key>type3Hp</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+	</dict>
+	<key>level_resource</key>
+	<dict>
+		<key>tile_map</key>
+		<string>map_0.tmx</string>
+		<key>bg_image</key>
+		<string>global_bg.png</string>
+	</dict>
+</dict>
+</plist>

@@ -13,3 +13,5 @@ var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
 }
+
+g_resources.push("res/level/level_info_0.plist");

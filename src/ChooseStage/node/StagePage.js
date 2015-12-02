@@ -93,5 +93,8 @@ var StagePage = cc.Node.extend({
         var stage = sender;
         cc.sys.localStorage.setItem("nextLevel",stage.getTag());
 
+        new LevelLoader(stage.getTag());
+        GameManager.getInstance().setCurLevel(stage.getTag());
+
     }
 });

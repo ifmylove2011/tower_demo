@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="28" height="16" tilewidth="96" tileheight="96">
+ <tileset firstgid="1" name="tiles" tilewidth="96" tileheight="96">
+  <image source="D:/studying/cocos2d/cocosProjects/tower_demo/res/tiles.png" width="768" height="576"/>
+  <tile id="31">
+   <properties>
+    <property name="canTouch" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="bg" width="28" height="16">
+  <data encoding="base64" compression="zlib">
+   eJy9lEEPwiAMhas3vc150TFCop7U///3bBMaXki7wJySfMnoNh5teQxEdGJmIDjz4HxjPQ953RGQ+IW5MmljdN0bc2cesBd5f65ITrwV+VfGk3kxb6hBMjTwWcbERCoj5piVG+rhPGQsjZj5Rq+e1/mhxpTpqR+ub72v80MNa9+ao5fP6PyntPSvRw99MFPxQYC4178151HWUh8Esn1n5adYZ8LLMVLxu/oM88P7YCu9OlaDdV3r6556Y11pYV+e11rj2F/R3DH7P+hp/w7M8cf1RJ/gvW3hnZGeuPbtA6EOLk8=
+  </data>
+ </layer>
+ <objectgroup name="obj">
+  <object name="0" x="2442.42" y="239.394"/>
+  <object name="1" x="2465.76" y="532.182"/>
+  <object name="2" x="2059.52" y="531.394"/>
+  <object name="3" x="2073.79" y="233.273"/>
+  <object name="4" x="809.091" y="233.333"/>
+  <object name="5" x="796.97" y="533.333"/>
+  <object name="6" x="1690.91" y="518.182"/>
+  <object name="7" x="1681.82" y="827.273"/>
+  <object name="8" x="506.061" y="809.091"/>
+  <object name="9" x="533.333" y="224.242"/>
+  <object name="10" x="221.212" y="230.303"/>
+  <object name="11" x="233.333" y="1118.18"/>
+  <object name="12" x="2463.64" y="1096.97"/>
+  <object name="13" x="2445.45" y="1400"/>
+  <object name="14" x="333.333" y="1390.91"/>
+ </objectgroup>
+</map>
