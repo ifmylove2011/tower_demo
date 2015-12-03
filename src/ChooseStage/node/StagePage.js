@@ -94,10 +94,12 @@ var StagePage = cc.Node.extend({
     onGameStart: function (sender) {
         trace("start");
         var stage = sender;
-        cc.sys.localStorage.setItem("nextLevel",stage.getTag());
-
+        cc.sys.localStorage.setItem("nextLevel", stage.getTag());
+        //载入关卡详情
         new LevelLoader(stage.getTag());
         GameManager.getInstance().setCurLevel(stage.getTag());
-
+        //跳转到关卡详情面板
+        var scene = new LevelPanelScene();
+        cc.director.runScene(new cc.TransitionCrossFade(GC.TransitionTime, scene));
     }
 });

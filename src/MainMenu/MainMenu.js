@@ -10,7 +10,6 @@ var MainMenuLayer = cc.Layer.extend({
         this._super();
         this.loadBgLayer();
         this.addTouchLayer();
-        this.loadResource();
         return true;
     },
     /* 加载背景 */
@@ -22,12 +21,6 @@ var MainMenuLayer = cc.Layer.extend({
     addTouchLayer: function () {
         this.touchLayer = new MainMenuTouchLayer();
         this.addChild(this.touchLayer);
-    },
-    /* 载入必要资源--后面会用到的 */
-    loadResource: function () {
-        trace("width", GC.w, "height", GC.h);
-        cc.textureCache.addImage(res.Choose_Stage_png);
-        cc.spriteFrameCache.addSpriteFrames(res.Choose_Stage_plist);
     }
 });
 

@@ -14,9 +14,11 @@
         "src/resource.js",
         "src/app.js",
         "src/config.js",
+
         "src/MainMenu/MainMenu.js",
         "src/MainMenu/Layer/MainMenuBgLayer.js",
         "src/MainMenu/Layer/MainMenuTouchLayer.js",
+
         "src/ChooseStage/ChooseStage.js",
         "src/ChooseStage/Layer/ChooseStageTouchLayer.js",
         "src/ChooseStage/Layer/ChooseStageBgLayer.js",
@@ -25,6 +27,10 @@
 
         "src/Manager/GameManager.js",
         "src/Manager/LevelLoader.js",
-        "src/Manager/Enemy.js"
+        "src/Manager/Enemy.js",
+
+        "src/LevelPanel/LevelPanel.js",
+        "src/LevelPanel/Layer/LevelPanelBgLayer.js",
+        "src/LevelPanel/Layer/LevelPanelTouchLayer.js"
     ]
 }

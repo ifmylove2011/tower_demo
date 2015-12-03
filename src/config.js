@@ -16,3 +16,5 @@ GC.StageItemCol = 4;
 
 GC.DIR_HORIZONTAL = 0;
 GC.DIR_VERTICAL = 1;
+
+GC.StarNum = 3;

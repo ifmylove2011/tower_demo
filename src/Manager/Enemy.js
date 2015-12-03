@@ -3,7 +3,7 @@
  * 敌人封装类
  * 理论上应该由配置文件来控制敌人种类，敌人数量，敌人血量
  */
-var EnemyGroup = cc.class.extend({
+var EnemyGroup = cc.Class.extend({
     type1Num: 0,
     type1Hp: 0,
     type2Num: 0,
@@ -30,11 +30,10 @@ var EnemyGroup = cc.class.extend({
 /**
  * 查询ID创建精灵
  */
-/*
 var Enemy = cc.Sprite.extend({
     type: null,
     hp: null,
     ctor: function (id) {
-
+        //TO DO
     }
-});*/
+});

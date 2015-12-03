@@ -8,6 +8,7 @@ var ChooseStageLayer = cc.Layer.extend({
     touchLayer: null,
     ctor: function () {
         this._super();
+        this.loadResource();
         this.loadBgLayer();
         this.addTouchLayer();
         return true;
@@ -21,6 +22,11 @@ var ChooseStageLayer = cc.Layer.extend({
     addTouchLayer: function () {
         this.touchLayer = new ChooseStageTouchLayer();
         this.addChild(this.touchLayer);
+    },
+    /* 载入必要资源--后面会用到的 */
+    loadResource: function () {
+        cc.textureCache.addImage(res.Choose_Stage_png);
+        cc.spriteFrameCache.addSpriteFrames(res.Choose_Stage_plist);
     }
 });
 
