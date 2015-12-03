@@ -1,5 +1,6 @@
 /**
  * Created by XTER on 2015/11/19.
+ * 主菜单
  */
 
 var MainMenuLayer = cc.Layer.extend({
@@ -22,6 +23,7 @@ var MainMenuLayer = cc.Layer.extend({
         this.touchLayer = new MainMenuTouchLayer();
         this.addChild(this.touchLayer);
     },
+    /* 载入必要资源--后面会用到的 */
     loadResource: function () {
         trace("width", GC.w, "height", GC.h);
         cc.textureCache.addImage(res.Choose_Stage_png);

@@ -1,5 +1,6 @@
 /**
  * Created by XTER on 2015/11/19.
+ * 主菜单可操作层
  */
 
 var MainMenuTouchLayer = cc.Layer.extend({
@@ -11,6 +12,7 @@ var MainMenuTouchLayer = cc.Layer.extend({
         this.addMenu();
         return true;
     },
+    /* 添加标题LOGO */
     addTitle: function () {
         this.title = new cc.Sprite(res.Game_Title_png);
         this.title.attr({
@@ -19,10 +21,11 @@ var MainMenuTouchLayer = cc.Layer.extend({
         });
         this.addChild(this.title, 2);
         //标题动作
-        var move = cc.moveBy(0.5, cc.p(20));
+        var move = cc.moveBy(2, cc.p(0,20));
         var action = cc.sequence(move, move.reverse()).repeatForever();
-        //this.title.runAction(action);
+        this.title.runAction(action);
     },
+    /* 添加菜单【开始游戏】 */
     addMenu: function () {
         var btnStartNormal = new cc.Sprite(res.Menu_Main_Start_png);
         var btnStartSelected = new cc.Sprite(res.Menu_Main_Start_png);

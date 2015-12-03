@@ -1,5 +1,6 @@
 /**
  * Created by XTER on 2015/11/19.
+ * 选择关卡的可触发层（操作层）
  */
 
 var ChooseStageTouchLayer = cc.Layer.extend({
@@ -10,6 +11,7 @@ var ChooseStageTouchLayer = cc.Layer.extend({
         this.addPageMark();
         return true;
     },
+    /* 添加页面视图 */
     addPageView: function () {
         //创建【页】
         var page = new ccui.PageView();
@@ -28,6 +30,7 @@ var ChooseStageTouchLayer = cc.Layer.extend({
             page.addPage(layout);
         }
     },
+    /* 添加页标 */
     addPageMark: function () {
         var mark = new PageMark({
             normalImage: "#page_other.png",

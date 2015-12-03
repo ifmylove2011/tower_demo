@@ -29,7 +29,7 @@ var PageMark = cc.Node.extend({
     init: function () {
         var markSprite = new cc.Sprite(this.normalImage);
 
-        startX = -(this.count - 1) / 2 * (this.space + markSprite.width);
+        var startX = -(this.count - 1) / 2 * (this.space + markSprite.width);
 
         for (var i = 0; i < this.count; i++) {
             var x = startX + i * (markSprite.width + this.space);

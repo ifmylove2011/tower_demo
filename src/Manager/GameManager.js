@@ -1,8 +1,8 @@
 /**
  * Created by XTER on 2015/12/2.
+ * 大家好，我是GM
  */
 
-//GM
 var GameManager = (function () {
 
     function gameManager() {
@@ -26,9 +26,9 @@ var GameManager = (function () {
         this.curHp = 10;
         // 多少波敌人
         this.groupNum = 0;
-        // 当前Level plist文件
+        // 当前配置文件
         this.curLevelFile = "";
-        // 下一Level plist文件
+        // 下一配置文件
         this.nextLevelFile = "";
         // 是否添加完毕
         this.isAddFinished = false;

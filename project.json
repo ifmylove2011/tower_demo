@@ -24,6 +24,7 @@
         "src/ChooseStage/node/StagePage.js",
 
         "src/Manager/GameManager.js",
-        "src/Manager/LevelLoader.js"
+        "src/Manager/LevelLoader.js",
+        "src/Manager/Enemy.js"
     ]
 }

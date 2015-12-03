@@ -14,32 +14,32 @@
 		<dict>
 			<key>1</key>
 			<dict>
-				<key>type1Num</key>
+				<key>type_1_num</key>
 				<integer>10</integer>
-				<key>type1Hp</key>
+				<key>type_1_hp</key>
 				<integer>3</integer>
-				<key>type2Num</key>
-				<integer>0</integer>
-				<key>type2Hp</key>
+				<key>type_2_num</key>
+				<integer>5</integer>
+				<key>type_2_hp</key>
 				<integer>2</integer>
-				<key>type3Num</key>
-				<integer>0</integer>
-				<key>type3Hp</key>
+				<key>type_3_num</key>
+				<integer>5</integer>
+				<key>type_3_hp</key>
 				<integer>1</integer>
 			</dict>
 			<key>2</key>
 			<dict>
-				<key>type1Num</key>
-				<integer>0</integer>
-				<key>type1Hp</key>
+				<key>type_1_num</key>
 				<integer>3</integer>
-				<key>type2Num</key>
-				<integer>1</integer>
-				<key>type2Hp</key>
+				<key>type_1_hp</key>
+				<integer>3</integer>
+				<key>type_2_num</key>
+				<integer>4</integer>
+				<key>type_2_hp</key>
 				<integer>2</integer>
-				<key>type3Num</key>
-				<integer>2</integer>
-				<key>type3Hp</key>
+				<key>type_3_num</key>
+				<integer>5</integer>
+				<key>type_3_hp</key>
 				<integer>1</integer>
 			</dict>
 		</dict>

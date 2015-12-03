@@ -1,6 +1,6 @@
 /**
  * Created by XTER on 2015/11/20.
- * 关卡选择页面，可滑动页
+ * 关卡选择节点，可滑动页，处理关卡选择逻辑
  */
 
 var StagePage = cc.Node.extend({
@@ -14,10 +14,12 @@ var StagePage = cc.Node.extend({
         this.addStageItems();
         return true;
     },
+    /* 构建参数（外） */
     loadConfig: function (bgName, page) {
         this.bgName = bgName;
         this.page = page;
     },
+    /* 载入背景 */
     loadBg: function () {
         trace(this.bgName);
 
@@ -42,14 +44,15 @@ var StagePage = cc.Node.extend({
         //根据计算得出每个关卡图标的位置
         for (var i = 0; i < GC.StageItemRow; i++) {
             for (var j = 0; j < GC.StageItemCol; j++) {
-                var x = marginX + size.width / 4 + j * (size.width + size.width / 2);
                 //默认是从下往上排的，因而作一下处理
+                var x = marginX + size.width / 4 + j * (size.width + size.width / 2);
                 var y = marginY + size.height / 4 + (GC.StageItemRow - 1 - i) * (size.height + size.height / 2);
 
+                //定菜单项
                 var stageItemNormal = new cc.Sprite("#stage_normal.png");
                 var stageItemSelected = new cc.Sprite("#stage_unlocked.png");
                 var stageItemDisable = new cc.Sprite("#stage_locked.png");
-                //定菜单项
+
                 var stageItem = new cc.MenuItemSprite(
                     stageItemNormal,
                     stageItemSelected,

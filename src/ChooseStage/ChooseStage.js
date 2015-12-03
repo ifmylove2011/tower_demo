@@ -12,10 +12,12 @@ var ChooseStageLayer = cc.Layer.extend({
         this.addTouchLayer();
         return true;
     },
+    /* 加载背景层 */
     loadBgLayer: function () {
         this.backgroundLayer = new ChooseStageBgLayer();
         this.addChild(this.backgroundLayer);
     },
+    /* 添加可触摸层 */
     addTouchLayer: function () {
         this.touchLayer = new ChooseStageTouchLayer();
         this.addChild(this.touchLayer);
