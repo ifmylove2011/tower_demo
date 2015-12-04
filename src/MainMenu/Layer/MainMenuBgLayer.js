@@ -1,6 +1,6 @@
 /**
  * Created by XTER on 2015/11/19.
- * Ö÷²Ëµ¥±³¾°²ã
+ * ä¸»èœå•èƒŒæ™¯å±‚
  */
 
 var MainMenuBgLayer = cc.Layer.extend({
@@ -9,7 +9,7 @@ var MainMenuBgLayer = cc.Layer.extend({
         this.loadBg();
         return true;
     },
-    /* ÔØÈë±³¾° */
+    /* è½½å…¥èƒŒæ™¯ */
     loadBg:function(){
         var bg = new cc.Sprite(res.Global_Bg_png);
         bg.attr({

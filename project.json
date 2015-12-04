@@ -22,8 +22,8 @@
         "src/ChooseStage/ChooseStage.js",
         "src/ChooseStage/Layer/ChooseStageTouchLayer.js",
         "src/ChooseStage/Layer/ChooseStageBgLayer.js",
-        "src/ChooseStage/node/PageMark.js",
-        "src/ChooseStage/node/StagePage.js",
+        "src/ChooseStage/Node/PageMark.js",
+        "src/ChooseStage/Node/StagePage.js",
 
         "src/Manager/GameManager.js",
         "src/Manager/LevelLoader.js",

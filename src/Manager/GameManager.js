@@ -1,38 +1,39 @@
 /**
  * Created by XTER on 2015/12/2.
- * ´ó¼ÒºÃ£¬ÎÒÊÇGM
+ * å¤§å®¶å¥½ï¼Œæˆ‘æ˜¯GM
  */
 
 var GameManager = (function () {
 
     function gameManager() {
-        // µĞÈËÖ»Êı
+        // ã€æ•Œäººæ•°é‡ã€‘æ•°ç»„
         this.enemyArray = [];
-        // µĞÈË²¨Êı
+        // ã€æ•Œäººæ³¢æ•°ã€‘æ•°ç»„
         this.groupArray = [];
-        // µ¯Ò©Êı
+        // ã€å¼¹è¯æ•°é‡ã€‘æ•°ç»„
         this.bulletArray = [];
-        // ÒÆ¶¯µãÊı
+        // ã€ç§»åŠ¨ç‚¹ã€‘æ•°ç»„
         this.pointArray = [];
-        // µ±Ç°[±³¾°]
+        // å½“å‰ã€èƒŒæ™¯ã€‘
         this.curBgName = "";
-        // µ±Ç°[µØÍ¼]
+        // å½“å‰ã€åœ°å›¾ã€‘
         this.curMapName = "";
-        // µ±Ç°[½ğÇ®]
+        // å½“å‰ã€é‡‘é’±ã€‘
         this.curMoney = 0;
-        // µ±Ç°[¹Ø¿¨]
+        // å½“å‰ã€å…³å¡ã€‘
         this.curLevel = 0;
-        // µ±Ç°[ÑªÁ¿]
+        // å½“å‰ã€è¡€é‡ã€‘
         this.curHp = 10;
-        // ¶àÉÙ²¨µĞÈË
+        // ã€æ•Œäººæ³¢æ•°ã€‘
         this.groupNum = 0;
-        // µ±Ç°ÅäÖÃÎÄ¼ş
+        // å½“å‰ã€å…³å¡é…ç½®ã€‘
         this.curLevelFile = "";
-        // ÏÂÒ»ÅäÖÃÎÄ¼ş
+        // ä¸‹ä¸€ã€å…³å¡é…ç½®ã€‘
         this.nextLevelFile = "";
-        // ÊÇ·ñÌí¼ÓÍê±Ï
+        // æ˜¯å¦ã€åŠ è½½å®Œæ¯•ã€‘
         this.isAddFinished = false;
 
+        // é‡ç½®ã€æ¸¸æˆæ•°æ®ã€‘
         this.clear = function () {
             this.groupArray = [];
             this.enemyArray = [];
@@ -133,13 +134,11 @@ var GameManager = (function () {
         };
     }
 
-    //ÊµÀıÈİÆ÷
+    //ä½¿ç”¨å•ä¾‹æ¨¡å¼ç®¡ç†
     var instance;
 
     var single = {
         name: 'GameManager',
-        //»ñÈ¡ÊµÀıµÄ·½·¨
-        //·µ»ØSingletonµÄÊµÀı
         getInstance: function () {
             if (instance === undefined) {
                 instance = new gameManager();

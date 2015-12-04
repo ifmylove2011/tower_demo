@@ -1,9 +1,9 @@
 /**
- * Created by XTER on 2015/11/19.
- *  主菜单
+ * Created by XTER on 2015/12/4.
+ * 游戏主场景
  */
 
-var MainMenuLayer = cc.Layer.extend({
+var GamePlayLayer = cc.Layer.extend({
     backgroundLayer: null,
     touchLayer: null,
     ctor: function () {
@@ -14,24 +14,23 @@ var MainMenuLayer = cc.Layer.extend({
     },
     /* 载入背景层 */
     loadBgLayer: function () {
-        this.backgroundLayer = new MainMenuBgLayer();
-        this.addChild(this.backgroundLayer);
+        this.backgroundLayer = new GamePlayBgLayer();
+        this.add(this.backgroundLayer);
     },
     /* 添加可控层 */
     addTouchLayer: function () {
-        this.touchLayer = new MainMenuTouchLayer();
-        this.addChild(this.touchLayer);
+        this.touchLayer = new GamePlayTouchLayer();
+        this.add(this.touchLayer);
     }
 });
 
-var MainMenuScene = cc.Scene.extend({
+var GamePlayScene = cc.Scene.extend({
     onEnter: function () {
         this._super();
         this.addMainLayer();
     },
-    /* 添加主层 */
     addMainLayer: function () {
-        var layer = new MainMenuLayer();
+        var layer = new GamePlayLayer();
         this.addChild(layer);
     }
 });

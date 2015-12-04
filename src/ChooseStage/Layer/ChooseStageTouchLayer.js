@@ -1,6 +1,6 @@
 /**
  * Created by XTER on 2015/11/19.
- * Ñ¡Ôñ¹Ø¿¨µÄ¿É´¥·¢²ã£¨²Ù×÷²ã£©
+ * é€‰æ‹©å…³å¡çš„å¯è§¦å‘å±‚ï¼ˆæ“ä½œå±‚ï¼‰
  */
 
 var ChooseStageTouchLayer = cc.Layer.extend({
@@ -11,18 +11,18 @@ var ChooseStageTouchLayer = cc.Layer.extend({
         this.addPageMark();
         return true;
     },
-    /* Ìí¼ÓÒ³ÃæÊÓÍ¼ */
+    /* æ·»åŠ é¡µé¢è§†å›¾ */
     addPageView: function () {
-        //´´½¨¡¾Ò³¡¿
+        //åˆ›å»ºã€é¡µã€‘
         var page = new ccui.PageView();
         this.addChild(page);
         page.setTouchEnabled(true);
         page.setContentSize(GC.winSize);
         page.addEventListener(this.onPageEvent, this);
 
-        //½«ÄÚÈİÌíÈë¡¾Ò³¡¿ÖĞ
+        //å°†å†…å®¹æ·»å…¥ã€é¡µã€‘ä¸­
         for (var i = 0; i < GC.StagePageCount; i++) {
-            var stagePage = new StagePage("#choose_stage_bg_" + i%3 + ".png", i);
+            var stagePage = new StagePage("#choose_stage_bg_" + i % 3 + ".png", i);
             var layout = new ccui.Layout();
             //layout.setContentSize(cc.size(GC.w_mid,GC.h_mid));
             layout.setContentSize(GC.winSize);
@@ -30,7 +30,7 @@ var ChooseStageTouchLayer = cc.Layer.extend({
             page.addPage(layout);
         }
     },
-    /* Ìí¼ÓÒ³±ê */
+    /* æ·»åŠ é¡µæ ‡ */
     addPageMark: function () {
         var mark = new PageMark({
             normalImage: "#page_other.png",
@@ -46,7 +46,7 @@ var ChooseStageTouchLayer = cc.Layer.extend({
         this.addChild(mark);
         this.mark = mark;
     },
-    /* »¬¶¯Ò³Ãæ´¥·¢ */
+    /* æ»‘åŠ¨é¡µé¢è§¦å‘ */
     onPageEvent: function (sender, type) {
         switch (type) {
             case ccui.PageView.EVENT_TURNING:

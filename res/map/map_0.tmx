@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="28" height="16" tilewidth="96" tileheight="96">
  <tileset firstgid="1" name="tiles" tilewidth="96" tileheight="96">
-  <image source="D:/studying/cocos2d/cocosProjects/tower_demo/res/tiles.png" width="768" height="576"/>
+  <image source="tiles.png" width="768" height="576"/>
   <tile id="31">
    <properties>
     <property name="canTouch" value="1"/>
@@ -10,7 +10,7 @@
  </tileset>
  <layer name="bg" width="28" height="16">
   <data encoding="base64" compression="zlib">
-   eJy9lEEPwiAMhas3vc150TFCop7U///3bBMaXki7wJySfMnoNh5teQxEdGJmIDjz4HxjPQ953RGQ+IW5MmljdN0bc2cesBd5f65ITrwV+VfGk3kxb6hBMjTwWcbERCoj5piVG+rhPGQsjZj5Rq+e1/mhxpTpqR+ub72v80MNa9+ao5fP6PyntPSvRw99MFPxQYC4178151HWUh8Esn1n5adYZ8LLMVLxu/oM88P7YCu9OlaDdV3r6556Y11pYV+e11rj2F/R3DH7P+hp/w7M8cf1RJ/gvW3hnZGeuPbtA6EOLk8=
+   eJy9lEELwjAMhaM3vc3toutKQT2p///vmUBDHyWBdlQLH2zp1tckfZ2I6MJsQHDeg/ON9TzldWdA4lfmxqTB6Lp35sE8YS8yv1QkJ96K/CvjxbyZD9QgGRr4LGNlIpURc8zKbXHeQ8bSiJmRenV+qLFmeuqH61vzdX6oYe1bc/TymZ3/lJb+9eihDzYqPggQ9/q35zzKWuqDQLbvrPwU60x4OUYqflefYX54H4zSq2M1WNe9vu6pd+t95nmtNY79Fc0Dc/yDnvbvxJx/XE/0Cd7bFt4Z6Ylr376CnS6P
   </data>
  </layer>
  <objectgroup name="obj">

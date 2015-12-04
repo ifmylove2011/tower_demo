@@ -1,38 +1,44 @@
 /**
  * Created by XTER on 2015/12/3.
- * ¹Ø¿¨ÏêÇéÃæ°å
+ * å…³å¡è¯¦æƒ…é¢æ¿
  */
 
 var LevelPanelLayer = cc.Layer.extend({
-    backgroundLayer:null,
-    touchLayer:null,
+    backgroundLayer: null,
+    touchLayer: null,
     ctor: function () {
         this._super();
-        this.loadResource();
         this.loadBgLayer();
         this.addTouchLayer();
         return true;
     },
-    /* ¼ÓÔØ±³¾°²ã */
-    loadBgLayer:function(){
+    /* åŠ è½½èƒŒæ™¯å±‚ */
+    loadBgLayer: function () {
         this.backgroundLayer = new LevelPanelBgLayer();
         this.addChild(this.backgroundLayer);
     },
-    /* Ìí¼Ó¿É¿Ø²ã */
-    addTouchLayer:function(){
+    /* æ·»åŠ å¯æ§å±‚ */
+    addTouchLayer: function () {
         this.touchLayer = new LevelPanelTouchLayer();
         this.addChild(this.touchLayer);
     },
-    loadResource:function(){
-        cc.textureCache.addImage(res.Level_Panel_png);
-        cc.spriteFrameCache.addSpriteFrames(res.Level_Panel_plist);
-    }
+
 });
 
 var LevelPanelScene = cc.Scene.extend({
     onEnter: function () {
         this._super();
+        this.loadResource();
+        this.addMainLayer();
+    },
+    /* æ·»åŠ ä¸»å±‚ */
+    addMainLayer: function () {
         var layer = new LevelPanelLayer();
         this.addChild(layer);
+    },
+    /* è½½å…¥å¿…è¦èµ„æº */
+    loadResource: function () {
+        cc.textureCache.addImage(res.Level_Panel_png);
+        cc.spriteFrameCache.addSpriteFrames(res.Level_Panel_plist);
     }
 });

@@ -1,6 +1,6 @@
 /**
  * Created by XTER on 2015/11/19.
- * Ñ¡Ôñ¹Ø¿¨Ò³ÃæµÄ±³¾°²ã
+ * é€‰æ‹©å…³å¡èƒŒæ™¯å±‚
  */
 
 var ChooseStageBgLayer = cc.Layer.extend({
@@ -9,7 +9,7 @@ var ChooseStageBgLayer = cc.Layer.extend({
         this.loadBg();
         return true;
     },
-    /* ÔØÈë±³¾° */
+    /* åŠ è½½èƒŒæ™¯ */
     loadBg: function () {
         var bg = new cc.Sprite(res.Global_Bg_png);
         bg.attr({

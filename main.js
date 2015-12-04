@@ -1,28 +1,28 @@
 cc.game.onStart = function () {
 
-    // Retina(ÊÓÍøÄ¤)ÏÔÊ¾ÆÁÊÊÅä
+    // Retinaè‰æœå±ä¼˜åŒ–ï¼ˆè§†ç½‘è†œå±ï¼‰
     cc.view.enableRetina(false);
-    // html5 viewPortÊôĞÔ
+    // html5 è‡ªåŠ¨é€‚åº”
     cc.view.adjustViewPort(true);
-    // ÉèÖÃ»­Ãæ³ß´ç¼°ÊÊÅä¹æÔò
+    // é€‚åº”å¤§å°æ–¹å¼
     cc.view.setDesignResolutionSize(1280, 720, cc.ResolutionPolicy.FIXED_HEIGHT);
-    // ÊÇ·ñ¸úËæä¯ÀÀÆ÷±ä»¯
+    // åœ¨æµè§ˆå™¨ä¸­è‡ªåŠ¨é‡ç»˜å¤§å°
     cc.view.resizeWithBrowserSize(true);
     cc.director.setContentScaleFactor(1536 / 1280);
 
-    //±ØÒªµÄ³£Á¿¸³Öµ
+    //å…¨å±€å‚æ•°èµ‹å€¼
     GC.winSize = cc.winSize;
     GC.w = GC.winSize.width;
     GC.h = GC.winSize.height;
     GC.w_mid = GC.w / 2;
     GC.h_mid = GC.h / 2;
 
-    // ÔØÈë×ÊÔ´
+    // åˆæ¬¡è½½å…¥èƒŒæ™¯å±‚ï¼Œé¢„åŠ è½½èµ„æº
     cc.LoaderScene.preload(g_resources, function () {
         cc.director.runScene(new MainMenuScene());
     }, this);
 };
-//È«¾ÖÍ¨ÓÃLOGº¯Êı
+//å…¨å±€Logå‡½æ•°
 var trace = function () {
     cc.log(Array.prototype.join.call(arguments, ","));
 };
