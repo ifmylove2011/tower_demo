@@ -4,12 +4,19 @@
  */
 
 var GamePlayBgLayer = cc.Layer.extend({
-    ctor:function(){
+    ctor: function () {
         this._super();
         this.loadBg();
         return true;
     },
-    loadBg:function(){
-
+    loadBg: function () {
+        var instance = GameManager.getInstance();
+        var bgName = "res/" + instance.getCurBgName();
+        var bgSprite = new cc.Sprite(bgName);
+        bgSprite.attr({
+            x:GC.w_mid,
+            y:GC.h_mid
+        });
+        this.addChild(bgSprite);
     }
 });

@@ -9,7 +9,10 @@ var res = {
     Choose_Stage_png: "res/choose_stage.png",
 
     Level_Panel_plist: "res/level_panel.plist",
-    Level_Panel_png: "res/level_panel.png"
+    Level_Panel_png: "res/level_panel.png",
+
+    GamePlay_Info_plist: "res/GamePlay_Info.plist",
+    GamePlay_Info_png: "res/GamePlay_Info.png"
 };
 
 var g_resources = [];
@@ -18,3 +21,5 @@ for (var i in res) {
 }
 
 g_resources.push("res/level/level_info_0.plist");
+g_resources.push("res/map/map_0.tmx");
+g_resources.push("res/tilemap0.tmx");

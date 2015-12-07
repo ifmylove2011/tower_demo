@@ -18,3 +18,6 @@ GC.DIR_HORIZONTAL = 0;
 GC.DIR_VERTICAL = 1;
 
 GC.StarNum = 3;
+
+GC.MapWidth= 28;
+GC.MapHeight = 16;

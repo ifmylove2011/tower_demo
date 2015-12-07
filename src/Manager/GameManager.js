@@ -13,7 +13,7 @@ var GameManager = (function () {
         // 【弹药数量】数组
         this.bulletArray = [];
         // 【移动点】数组
-        this.pointArray = [];
+        this.posArray = [];
         // 当前【背景】
         this.curBgName = "";
         // 当前【地图】
@@ -63,11 +63,11 @@ var GameManager = (function () {
         };
 
 
-        this.getPointArray = function () {
-            return this.pointArray;
+        this.getPosArray = function () {
+            return this.posArray;
         };
-        this.setPointArray = function (pointArray) {
-            this.pointArray = pointArray;
+        this.setPosArray = function (posArray) {
+            this.posArray = posArray;
         };
 
 

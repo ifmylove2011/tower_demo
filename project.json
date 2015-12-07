@@ -31,6 +31,11 @@
 
         "src/LevelPanel/LevelPanel.js",
         "src/LevelPanel/Layer/LevelPanelBgLayer.js",
-        "src/LevelPanel/Layer/LevelPanelTouchLayer.js"
+        "src/LevelPanel/Layer/LevelPanelTouchLayer.js",
+
+        "src/GamePlay/GamePlay.js",
+        "src/GamePlay/Layer/GamePlayBgLayer.js",
+        "src/GamePlay/Layer/GamePlayTouchLayer.js",
+        "src/GamePlay/Layer/ToolPanelLayer.js"
     ]
 }
