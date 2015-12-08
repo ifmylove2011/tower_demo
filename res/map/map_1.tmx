@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="18" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="tiles_40dpi" tilewidth="40" tileheight="40">
+  <image source="tiles_40dpi.png" width="320" height="240"/>
+  <tile id="23">
+   <properties>
+    <property name="canTouch" value="1"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="canTouch" value="0"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="bg" width="32" height="18">
+  <properties>
+   <property name="canTouch" value=""/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzFlktPwzAQhM0rEhSQIAW5GFzBAdoegP//6xhLGbEaNusekHL45DZe73McZUwpjQuzXXBtnIBTkAPWAW3/FbyB0rFPxpb1X4KrwHeW35pXW/fgIPE92yS2W7Gp4qNM0N8ZOJ/ytnGKOafPq3lWhbETn3b0twLXM33xeufV8wLuwL2pP5ptFn9q35tRlvjPYAOenD5GZ9nPaL5tHYKa7Dzt/NX/nO8q/6nlY3O082wr9RT1dy2+38EH2KVfLWv9VrPMcZiw8amnY3Jnfp/gC3yDiwnvLujdZHybv/a/yj77VdJfLWcT357R+tljxrf5e/fY7vf0wPjeGb2zjM89vn8jffX04OlvcHwUx5bv30i7PT14+vN8VMfWq7933xo34DaYidbvnfHqn7tvuv8AHv/hDOtf8hvgB5OtNRc=
+  </data>
+ </layer>
+ <objectgroup name="obj">
+  <object name="0" x="136.333" y="138"/>
+  <object name="1" x="305.667" y="134.333"/>
+  <object name="2" x="307.333" y="265.667"/>
+  <object name="3" x="92.6667" y="255.333"/>
+  <object name="4" x="96.6667" y="665"/>
+  <object name="5" x="262.333" y="664"/>
+  <object name="6" x="256" y="376"/>
+  <object name="7" x="425" y="381.667"/>
+  <object name="8" x="416.667" y="96.6667"/>
+  <object name="9" x="663.333" y="93.3333"/>
+  <object name="10" x="663.333" y="261.667"/>
+  <object name="11" x="573.333" y="255"/>
+  <object name="12" x="583.333" y="541.667"/>
+  <object name="13" x="414.667" y="536.667"/>
+  <object name="14" x="414.667" y="660.667"/>
+  <object name="15" x="780" y="661.667"/>
+  <object name="16" x="776.667" y="215"/>
+  <object name="17" x="900" y="216.667"/>
+  <object name="18" x="893.333" y="93.3333"/>
+  <object name="19" x="1103" y="92.6667"/>
+  <object name="20" x="1103" y="302"/>
+  <object name="21" x="933.333" y="295"/>
+  <object name="22" x="935.667" y="661.333"/>
+  <object name="23" x="1223.33" y="660"/>
+  <object name="24" x="1220" y="298.333"/>
+ </objectgroup>
+</map>

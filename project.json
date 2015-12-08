@@ -27,7 +27,7 @@
 
         "src/Manager/GameManager.js",
         "src/Manager/LevelLoader.js",
-        "src/Manager/Enemy.js",
+        "src/Manager/EnemyGroup.js",
 
         "src/LevelPanel/LevelPanel.js",
         "src/LevelPanel/Layer/LevelPanelBgLayer.js",

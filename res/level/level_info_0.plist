@@ -47,9 +47,9 @@
 	<key>level_resource</key>
 	<dict>
 		<key>tile_map</key>
-		<string>map_0.tmx</string>
+		<string>map_1.tmx</string>
 		<key>bg_image</key>
-		<string>global_bg.png</string>
+		<string>bg_star_shower.png</string>
 	</dict>
 </dict>
 </plist>

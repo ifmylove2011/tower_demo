@@ -1,6 +1,6 @@
 var res = {
     Global_Bg_png: "res/global_bg.png",
-    Global_Bg_Grass_jpg: "res/global_bg_grass.jpg",
+    Global_Bg_Star_Shower_png:"res/bg_star_shower.png",
     Menu_Main_Start_png: "res/menu_main_start.png",
     Mini_Xingkai_CH_fnt: "res/font/mini_CH.fnt",
     Game_Title_png: "res/game_title.png",
@@ -22,4 +22,6 @@ for (var i in res) {
 
 g_resources.push("res/level/level_info_0.plist");
 g_resources.push("res/map/map_0.tmx");
-g_resources.push("res/tilemap0.tmx");
+g_resources.push("res/map/map_1.tmx");
+g_resources.push("res/map/tiles.png");
+g_resources.push("res/map/tiles_40dpi.png");

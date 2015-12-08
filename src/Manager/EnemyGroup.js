@@ -1,7 +1,7 @@
 /**
  * Created by XTER on 2015/12/3.
- * µĞÈË·â×°Àà
- * ÀíÂÛÉÏÓ¦¸ÃÓÉÅäÖÃÎÄ¼şÀ´¿ØÖÆµĞÈËÖÖÀà£¬µĞÈËÊıÁ¿£¬µĞÈËÑªÁ¿
+ * æ•Œäººå°è£…ç±»
+ * ç†è®ºä¸Šåº”è¯¥ç”±é…ç½®æ–‡ä»¶æ¥æ§åˆ¶æ•Œäººç§ç±»ï¼Œæ•Œäººæ•°é‡ï¼Œæ•Œäººè¡€é‡
  */
 var EnemyGroup = cc.Class.extend({
     type1Num: 0,
@@ -11,7 +11,7 @@ var EnemyGroup = cc.Class.extend({
     type3Num: 0,
     type3Hp: 0,
     enemySum: 0,
-    /* µÃÏë¸ö°ì·¨£¬µĞÈËµÄÖÖÀàÓ¦¸ÃÔ¶²»Ö¹Õâ¼¸ÖÖ */
+    /* å¾—æƒ³ä¸ªåŠæ³•ï¼Œæ•Œäººçš„ç§ç±»åº”è¯¥è¿œä¸æ­¢è¿™å‡ ç§ */
     ctor: function (num1, hp1, num2, hp2, num3, hp3) {
         this.init(num1, hp1, num2, hp2, num3, hp3);
         return true;
@@ -28,7 +28,7 @@ var EnemyGroup = cc.Class.extend({
 });
 
 /**
- * ²éÑ¯ID´´½¨¾«Áé
+ * æŸ¥è¯¢IDåˆ›å»ºç²¾çµ
  */
 var Enemy = cc.Sprite.extend({
     type: null,

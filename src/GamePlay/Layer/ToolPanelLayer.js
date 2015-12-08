@@ -17,6 +17,8 @@ var ToolPanelLayer = cc.Layer.extend({
     initConfig: function () {
         this.gm = GameManager.getInstance();
         this.maxHp = this.gm.getCurHp();
+        trace("===============");
+        trace("maxHP: ",this.maxHp);
     },
     initToolbar: function () {
         var toolbar = new cc.Sprite("#gp_toolBg.png");
