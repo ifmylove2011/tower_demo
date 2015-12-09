@@ -123,17 +123,18 @@ var GamePlayTouchLayer = cc.Layer.extend({
 
         //敌人在射程内，just beat it!
         if (cc.rectIntersectsRect(bulletRange, enemyRange)) {
-
+            enemy.onHurt(bullet.getAttackValue());//敌人受伤回调
+            bullet.setIsDie(true);//子弹失效
         }
     },
     /* 清扫战场，包括清理失效弹药与已挂敌人 */
     clearStage: function () {
         var enemyArray = this.gm.getEnemyArray();
 
-        for(var i= 0;i<enemyArray.length;i++){
+        for (var i = 0; i < enemyArray.length; i++) {
             var enemy = enemyArray[i];
-            if(enemy){
-                enemyArray.splice(i,1); //删除当前一项
+            if (enemy) {
+                enemyArray.splice(i, 1); //删除当前一项
                 enemy.removeFromParent();
             }
         }

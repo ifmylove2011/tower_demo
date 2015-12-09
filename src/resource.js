@@ -1,8 +1,9 @@
 var res = {
+    HuangKang_CH_fnt: "res/font/huangkang.fnt",
+
     Global_Bg_png: "res/global_bg.png",
     Global_Bg_Star_Shower_png:"res/bg_star_shower.png",
     Menu_Main_Start_png: "res/menu_main_start.png",
-    Mini_Xingkai_CH_fnt: "res/font/mini_CH.fnt",
     Game_Title_png: "res/game_title.png",
 
     Choose_Stage_plist: "res/choose_stage.plist",
