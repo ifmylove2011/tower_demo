@@ -1,5 +1,6 @@
 var res = {
-    HuangKang_CH_fnt: "res/font/huangkang.fnt",
+    Num_fnt: "res/font/BMFont.fnt",
+    Char_EN_fnt:"res/font/Char_en.fnt",
 
     Global_Bg_png: "res/global_bg.png",
     Global_Bg_Star_Shower_png:"res/bg_star_shower.png",

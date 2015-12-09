@@ -44,12 +44,18 @@ var LevelLoader = cc.Class.extend({
             groupNum++;
         }
 
-        instance.curBgName = curBgName;
-        instance.curMapName = curMapName;
-        instance.curMoney = curMoney;
-        instance.curLevelFile = curLevelPlist;
-        instance.nextLevelFile = nextLevelPlist;
-        instance.groupNum = groupNum;
+        //instance.curBgName = curBgName;
+        instance.setCurBgName(curBgName);
+        //instance.curMapName = curMapName;
+        instance.setCurMapName(curMapName);
+        //instance.curMoney = curMoney;
+        instance.setCurMoney(curMoney);
+        //instance.curLevelFile = curLevelPlist;
+        instance.setCurLevelFile(curLevelPlist);
+        //instance.nextLevelFile = nextLevelPlist;
+        instance.setNextLevelFile(nextLevelPlist);
+        //instance.groupNum = groupNum;
+        instance.setGroupNum(groupNum);
 
         //创建敌人
         for (var i = 0; i < groupNum; i++) {

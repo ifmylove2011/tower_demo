@@ -65,7 +65,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
         var posObjs = this.posArray.getObjects();
         for (var i in posObjs) {
             var pos = cc.p(posObjs[i].x - offset, posObjs[i].y);
-            trace("各点位置", pos.x, pos.y);
+            //trace("各点位置", pos.x, pos.y);
             posArray.push(pos);
         }
         this.gm.setPosArray(posArray);
