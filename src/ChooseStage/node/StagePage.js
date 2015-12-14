@@ -73,11 +73,12 @@ var StagePage = cc.Node.extend({
 
                 //判断是否打通关了
                 var levelStr = cc.sys.localStorage.getItem("levelMax");
-                var levelNum = levelStr ? parseInt(levelStr) : 0;
+                var levelMax = levelStr ? parseInt(levelStr) : 0;
+                trace("tag:" + tag, "levelStr:" + levelStr, "levelMax" + levelMax);
                 if (!levelStr) {
                     cc.sys.localStorage.setItem("levelMax", 0);
                 }
-                if (levelNum < tag) {
+                if (levelMax < tag) {
                     stageItem.setEnabled(false);
                 }
             }

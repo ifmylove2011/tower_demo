@@ -4,12 +4,14 @@
  */
 
 var LevelPanelTouchLayer = cc.Layer.extend({
+    gm: null,
     panel: null,
     ctor: function () {
         this._super();
         this.addPanelBg();
         this.addPanelButton();
         this.addScoreFlag();
+        this.showInfo();
         return true;
     },
     /* 添加面板背景 */
@@ -79,5 +81,21 @@ var LevelPanelTouchLayer = cc.Layer.extend({
             flag.setPosition(flagStartX + space * i * 1.5, sizePanel.height / 3 * 2 + 10);
             this.panel.addChild(flag);
         }
+    },
+    /* 显示关卡信息 */
+    showInfo: function () {
+        this.gm = GameManager.getInstance();
+        var level = "当前关卡："+(this.gm.getCurLevel()+1)+"\n";
+        var money = "初始金钱："+this.gm.getCurMoney()+"\n";
+        var group = "怪物波数："+this.gm.getGroupNum()+"\n";
+        var sizePanel = this.panel.getContentSize();
+        var infoLabel = new cc.LabelTTF(level+money+group, "Arial", 28);
+        infoLabel.attr({
+            x: sizePanel.width / 5,
+            y: sizePanel.height / 2,
+            anchorX:0,
+            anchorY:0
+        });
+        this.panel.addChild(infoLabel);
     }
 });

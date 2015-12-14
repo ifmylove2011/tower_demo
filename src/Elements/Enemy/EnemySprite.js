@@ -114,9 +114,9 @@ var EnemySprite = cc.Sprite.extend({
     },
     /* 赏金 */
     getMoney: function () {
-        return money;
+        return this.money;
     },
-    setBeAttackedCallback:function(){
-
+    setBeAttackedCallback:function(callback){
+        this.beAttackedCallback=callback;
     }
 });

@@ -27,7 +27,10 @@
 
         "src/Manager/GameManager.js",
         "src/Manager/LevelLoader.js",
-        "src/Manager/EnemyGroup.js",
+
+        "src/Elements/Enemy/EnemyGroup.js",
+        "src/Elements/Enemy/EnemySprite.js",
+        "src/Elements/Bullet.js",
 
         "src/LevelPanel/LevelPanel.js",
         "src/LevelPanel/Layer/LevelPanelBgLayer.js",
@@ -36,6 +39,7 @@
         "src/GamePlay/GamePlay.js",
         "src/GamePlay/Layer/GamePlayBgLayer.js",
         "src/GamePlay/Layer/GamePlayTouchLayer.js",
-        "src/GamePlay/Layer/ToolPanelLayer.js"
+        "src/GamePlay/Layer/ToolPanelLayer.js",
+        "src/GamePlay/Layer/GamePassLayer.js"
     ]
 }

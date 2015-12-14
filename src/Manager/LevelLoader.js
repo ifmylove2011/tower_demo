@@ -9,6 +9,7 @@ var LevelLoader = cc.Class.extend({
     ctor: function (level) {
         this.loadPlist(level);
         this.loadLevelInfo();
+        return true;
     },
     /* 加载配置文件 */
     loadPlist: function (level) {
@@ -28,8 +29,8 @@ var LevelLoader = cc.Class.extend({
     /* 初始化游戏数据 */
     loadLevelInfo: function () {
         //还是用单例靠谱
-        var instance = GameManager.getInstance();
-        instance.clear();
+        var gm = GameManager.getInstance();
+        gm.clear();
 
         //取出各种配置数据
         var curBgName = this.resource.bg_image;
@@ -44,18 +45,12 @@ var LevelLoader = cc.Class.extend({
             groupNum++;
         }
 
-        //instance.curBgName = curBgName;
-        instance.setCurBgName(curBgName);
-        //instance.curMapName = curMapName;
-        instance.setCurMapName(curMapName);
-        //instance.curMoney = curMoney;
-        instance.setCurMoney(curMoney);
-        //instance.curLevelFile = curLevelPlist;
-        instance.setCurLevelFile(curLevelPlist);
-        //instance.nextLevelFile = nextLevelPlist;
-        instance.setNextLevelFile(nextLevelPlist);
-        //instance.groupNum = groupNum;
-        instance.setGroupNum(groupNum);
+        gm.setCurBgName(curBgName);
+        gm.setCurMapName(curMapName);
+        gm.setCurMoney(curMoney);
+        gm.setCurLevelFile(curLevelPlist);
+        gm.setNextLevelFile(nextLevelPlist);
+        gm.setGroupNum(groupNum);
 
         //创建敌人
         for (var i = 0; i < groupNum; i++) {
@@ -69,7 +64,7 @@ var LevelLoader = cc.Class.extend({
             var enemy3Hp = parseInt(enemyInfo.type_3_hp);
 
             var groupEnemy = new EnemyGroup(enemy1Num, enemy1Hp, enemy2Num, enemy2Hp, enemy3Num, enemy3Hp);
-            instance.groupArray.push(groupEnemy);
+            gm.groupArray.push(groupEnemy);
 
             trace("======== 加载敌人信息=========");
             trace("enemy1Num", enemy1Num);

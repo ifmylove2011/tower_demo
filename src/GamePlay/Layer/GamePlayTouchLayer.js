@@ -19,7 +19,9 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.loadMap();
         this.initToolPanel();
         this.updatePosArray();
-        //this.addTouchListener();
+        this.isGamePass();
+        this.addTouchListener();
+        this.scheduleUpdate();
         return true;
     },
     /* 加载必要参数 */
@@ -71,6 +73,10 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.gm.setPosArray(posArray);
 
         this.offset = offset;
+    },
+    /* 添加敌人 */
+    addEnemy:function(){
+
     },
     /* 处理游戏逻辑 */
     update: function () {
@@ -129,14 +135,50 @@ var GamePlayTouchLayer = cc.Layer.extend({
     },
     /* 清扫战场，包括清理失效弹药与已挂敌人 */
     clearStage: function () {
+        //清理失效敌人
         var enemyArray = this.gm.getEnemyArray();
 
         for (var i = 0; i < enemyArray.length; i++) {
             var enemy = enemyArray[i];
-            if (enemy) {
+            if (enemy.isDie) {
                 enemyArray.splice(i, 1); //删除当前一项
                 enemy.removeFromParent();
+                //加钱
+                this.toolPanel.onAddMoney(enemy.getMoney());
+                //判断是否通过
+                this.isGamePass();
             }
         }
+
+        //清理失效子弹
+        var bulletArray = this.gm.getBulletArray();
+
+        for (var i = 0; i < bulletArray.length; i++) {
+            var bullet = bulletArray[i];
+            if (bullet.isDie) {
+                bullet.removeFromParent();
+                bulletArray.splice(i, 1);
+            }
+        }
+    },
+    isGamePass: function () {
+        if (this.curGroupIndex == this.gm.getGroupArray().length - 1 && this.gm.getIsAddFinished() && this.gm.getEnemyArray().length == 0) {
+            this.gm.clear();
+            this.onGamePass();
+            return;
+        }
+    },
+    onGamePass: function () {
+        cc.eventManager.removeAllListeners();
+
+        var levelStr = cc.sys.localStorage.getItem("levelMax");
+        var curLevel = parseInt(levelStr);
+        if (curLevel == this.gm.getCurLevel()) {
+            var nextLevel = curLevel + 1;
+            cc.sys.localStorage.setItem("levelMax", nextLevel);
+        }
+
+        var layer = new GamePassLayer();
+        this.addChild(layer, 10);
     }
 });

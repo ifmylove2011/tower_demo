@@ -38,7 +38,7 @@ var GameManager = (function () {
             this.groupArray = [];
             this.enemyArray = [];
             this.bulletArray = [];
-            this.pointArray = [];
+            this.posArray = [];
         };
 
         this.getGroupArray = function () {
