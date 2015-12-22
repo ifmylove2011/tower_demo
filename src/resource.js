@@ -16,7 +16,10 @@ var res = {
     Level_Panel_png: "res/level_panel.png",
 
     GamePlay_Info_plist: "res/GamePlay_Info.plist",
-    GamePlay_Info_png: "res/GamePlay_Info.png"
+    GamePlay_Info_png: "res/GamePlay_Info.png",
+
+    Enemy_plist:"res/enemy.plist",
+    Enemy_png:"res/enemy.png"
 };
 
 var g_resources = [];

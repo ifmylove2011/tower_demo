@@ -1,45 +1,53 @@
 {
-    "project_type": "javascript",
+  "project_type": "javascript",
+  "debugMode": 1,
+  "showFPS": true,
+  "frameRate": 60,
+  "id": "gameCanvas",
+  "renderMode": 0,
+  "engineDir": "frameworks/cocos2d-html5",
+  "modules": [
+    "cocos2d",
+    "extensions"
+  ],
+  "jsList": [
+    "src/resource.js",
+    "src/app.js",
+    "src/config.js",
 
-    "debugMode" : 1,
-    "showFPS" : true,
-    "frameRate" : 60,
-    "id" : "gameCanvas",
-    "renderMode" : 0,
-    "engineDir":"frameworks/cocos2d-html5",
+    "src/MainMenu/MainMenu.js",
+    "src/MainMenu/Layer/MainMenuBgLayer.js",
+    "src/MainMenu/Layer/MainMenuTouchLayer.js",
 
-    "modules" : ["cocos2d","extensions"],
+    "src/ChooseStage/ChooseStage.js",
+    "src/ChooseStage/Layer/ChooseStageTouchLayer.js",
+    "src/ChooseStage/Layer/ChooseStageBgLayer.js",
 
-    "jsList" : [
-        "src/resource.js",
-        "src/app.js",
-        "src/config.js",
+    "src/ChooseStage/Node/PageMark.js",
+    "src/ChooseStage/Node/StagePage.js",
 
-        "src/MainMenu/MainMenu.js",
-        "src/MainMenu/Layer/MainMenuBgLayer.js",
-        "src/MainMenu/Layer/MainMenuTouchLayer.js",
+    "src/Manager/GameManager.js",
+    "src/Manager/LevelLoader.js",
 
-        "src/ChooseStage/ChooseStage.js",
-        "src/ChooseStage/Layer/ChooseStageTouchLayer.js",
-        "src/ChooseStage/Layer/ChooseStageBgLayer.js",
-        "src/ChooseStage/Node/PageMark.js",
-        "src/ChooseStage/Node/StagePage.js",
+    "src/Elements/Enemy/EnemyGroup.js",
+    "src/Elements/Enemy/EnemySprite.js",
+    "src/Elements/Enemy/PirateEnemy.js",
+    "src/Elements/Enemy/ThiefEnemy.js",
+    "src/Elements/Enemy/BanditEnemy.js",
+    "src/Elements/Bullet.js",
 
-        "src/Manager/GameManager.js",
-        "src/Manager/LevelLoader.js",
+    "src/LevelPanel/LevelPanel.js",
+    "src/LevelPanel/Layer/LevelPanelBgLayer.js",
+    "src/LevelPanel/Layer/LevelPanelTouchLayer.js",
 
-        "src/Elements/Enemy/EnemyGroup.js",
-        "src/Elements/Enemy/EnemySprite.js",
-        "src/Elements/Bullet.js",
+    "src/GamePlay/GamePlay.js",
+    "src/GamePlay/Layer/GamePlayBgLayer.js",
+    "src/GamePlay/Layer/GamePlayTouchLayer.js",
+    "src/GamePlay/Layer/ToolPanelLayer.js",
+    "src/GamePlay/Layer/GamePassLayer.js",
 
-        "src/LevelPanel/LevelPanel.js",
-        "src/LevelPanel/Layer/LevelPanelBgLayer.js",
-        "src/LevelPanel/Layer/LevelPanelTouchLayer.js",
-
-        "src/GamePlay/GamePlay.js",
-        "src/GamePlay/Layer/GamePlayBgLayer.js",
-        "src/GamePlay/Layer/GamePlayTouchLayer.js",
-        "src/GamePlay/Layer/ToolPanelLayer.js",
-        "src/GamePlay/Layer/GamePassLayer.js"
-    ]
+    "src/GameOver/GameOver.js",
+    "src/GameOver/Layer/GameOverTouchLayer.js",
+    "src/GameOver/Layer/GameOverBgLayer.js"
+  ]
 }

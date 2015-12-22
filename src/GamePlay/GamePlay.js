@@ -37,5 +37,8 @@ var GamePlayScene = cc.Scene.extend({
     loadResource: function () {
         cc.textureCache.addImage(res.GamePlay_Info_png);
         cc.spriteFrameCache.addSpriteFrames(res.GamePlay_Info_plist);
+
+        cc.textureCache.addImage(res.Enemy_png);
+        cc.spriteFrameCache.addSpriteFrames(res.Enemy_plist);
     }
 });

@@ -75,7 +75,35 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.offset = offset;
     },
     /* 添加敌人 */
-    addEnemy:function(){
+    addEnemy: function () {
+        var groupArray = this.gm.getGroupArray();
+        var groupEnemy = groupArray[this.curGroupIndex];
+
+        var enemy = null;
+
+        //在levelloader中载入的数据EnemyGroup
+        if (groupEnemy.enemySum > 0) {
+            groupEnemy.enemySum--;
+            var maxHp = 0;
+
+            if (groupEnemy.type1Num > 0) {
+                maxHp = groupEnemy.type1Hp;
+                groupEnemy.type1Num--;
+            } else if (groupEnemy.type2Num > 0) {
+                maxHp = groupEnemy.type2Hp;
+                groupEnemy.type2Num--;
+            } else if (groupEnemy.type3Num > 0) {
+                maxHp = groupEnemy.type3Hp;
+                groupEnemy.type3Num--;
+            } else {
+                trace("clear");
+            }
+
+            this.addChild(enemy);
+
+            this.gm.getEnemyArray().push(enemy);
+
+        }
 
     },
     /* 处理游戏逻辑 */
@@ -161,6 +189,29 @@ var GamePlayTouchLayer = cc.Layer.extend({
             }
         }
     },
+    /* 敌人到点终点了 */
+    enemyPass: function () {
+        var enemyArray = this.gm.getEnemyArray();
+
+        //将敌人从组中移除
+        for (var i = 0; i < enemyArray.length; i++) {
+            var enemy = enemyArray[i];
+            if (enemy.isSucceed) {
+                this.removeChild(enemy);
+                enemyArray.splice(i, 1);
+            }
+        }
+
+        //敌人到达终点引起的反应（回调）
+        this.toolPanel.onMinusHp(1);
+
+        var curHp = this.gm.getCurHp();
+        if(curHp<=0){
+            this.gm.clear();
+
+        }
+    },
+    /* 判断是否过关 */
     isGamePass: function () {
         if (this.curGroupIndex == this.gm.getGroupArray().length - 1 && this.gm.getIsAddFinished() && this.gm.getEnemyArray().length == 0) {
             this.gm.clear();
@@ -168,6 +219,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
             return;
         }
     },
+    /* 过关 */
     onGamePass: function () {
         cc.eventManager.removeAllListeners();
 
