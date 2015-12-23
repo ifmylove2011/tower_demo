@@ -21,6 +21,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.updatePosArray();
         this.isGamePass();
         this.addTouchListener();
+        this.schedule(this.addEnemy);
         this.scheduleUpdate();
         return true;
     },
@@ -102,7 +103,22 @@ var GamePlayTouchLayer = cc.Layer.extend({
             this.addChild(enemy);
 
             this.gm.getEnemyArray().push(enemy);
+            enemy.setAttackSucceedCallback(this.enemyPass.bind(this));
+            enemy.setMaxHp(maxHp);
+        } else {
+            this.curGroupIndex++;
 
+            //工具条显示变动
+            if(this.curGroupIndex<groupArray.length){
+                var label = this.toolPanel.getGroupIndexLabel();
+                label.setString((this.curGroupIndex+1)+" ");
+            }
+
+            //敌人添加完毕
+            if(this.curGroupIndex==groupArray.length-1){
+                this.gm.setIsAddFinished(true);
+                this.unschedule(this.addEnemy);
+            }
         }
 
     },
@@ -111,6 +127,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.collisionDetection();
         this.clearStage();
     },
+    /* 添加触摸监听器 */
     addTouchListener: function () {
         cc.eventManager.addListener({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -121,7 +138,13 @@ var GamePlayTouchLayer = cc.Layer.extend({
             onTouchEnded: this.onTouchEnded
         }, this);
     },
+    /* 触摸判定--建塔 */
     onTouchBegan: function (touch, event) {
+        var target = this.target;
+
+        if(target.towerPanel&&target.towerPanel.selectedTowerName==""){
+            
+        }
 
     },
     onTouchMoved: function (touch, event) {
@@ -206,9 +229,12 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.toolPanel.onMinusHp(1);
 
         var curHp = this.gm.getCurHp();
-        if(curHp<=0){
+        if (curHp <= 0) {
             this.gm.clear();
-
+            var scene = new GameOverScene();
+            cc.director.runScene(new cc.TransitionCrossFade(GC.TransitionTime, scene));
+        } else {
+            this.isGamePass();
         }
     },
     /* 判断是否过关 */

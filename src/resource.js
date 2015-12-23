@@ -3,6 +3,7 @@ var res = {
     Char_EN_fnt:"res/font/Char_en.fnt",
 
     Global_Bg_png: "res/global_bg.png",
+    Bg_GameOver_png:"res/bg_game_over_panel.png",
     Global_Bg_Star_Shower_png:"res/bg_star_shower.png",
     Menu_Main_Start_png: "res/menu_main_start.png",
     Game_Title_png: "res/game_title.png",

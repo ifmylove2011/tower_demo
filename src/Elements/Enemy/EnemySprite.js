@@ -10,7 +10,7 @@ var EnemySprite = cc.Sprite.extend({
     direction: 0,
     posArray: [],
     curPosIndex: 0,
-    beAttackedCallback: null,
+    attackSucceedCallback: null,
     isSucceed: false,
     hpBar: null,//头顶血条
     hpBarBg: null,
@@ -116,7 +116,7 @@ var EnemySprite = cc.Sprite.extend({
     getMoney: function () {
         return this.money;
     },
-    setBeAttackedCallback:function(callback){
-        this.beAttackedCallback=callback;
+    setAttackSucceedCallback:function(callback){
+        this.attackSucceedCallback=callback;
     }
 });
