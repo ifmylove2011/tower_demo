@@ -41,6 +41,7 @@
     "src/LevelPanel/Layer/LevelPanelTouchLayer.js",
 
     "src/GamePlay/GamePlay.js",
+    "src/GamePlay/TowerPanel.js",
     "src/GamePlay/Layer/GamePlayBgLayer.js",
     "src/GamePlay/Layer/GamePlayTouchLayer.js",
     "src/GamePlay/Layer/ToolPanelLayer.js",

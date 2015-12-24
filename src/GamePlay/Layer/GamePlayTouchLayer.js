@@ -109,17 +109,21 @@ var GamePlayTouchLayer = cc.Layer.extend({
             this.curGroupIndex++;
 
             //工具条显示变动
-            if(this.curGroupIndex<groupArray.length){
+            if (this.curGroupIndex < groupArray.length) {
                 var label = this.toolPanel.getGroupIndexLabel();
-                label.setString((this.curGroupIndex+1)+" ");
+                label.setString((this.curGroupIndex + 1) + " ");
             }
 
             //敌人添加完毕
-            if(this.curGroupIndex==groupArray.length-1){
+            if (this.curGroupIndex == groupArray.length - 1) {
                 this.gm.setIsAddFinished(true);
                 this.unschedule(this.addEnemy);
             }
         }
+
+    },
+    /* 添加塔 */
+    addTower: function (type, pos) {
 
     },
     /* 处理游戏逻辑 */
@@ -142,15 +146,30 @@ var GamePlayTouchLayer = cc.Layer.extend({
     onTouchBegan: function (touch, event) {
         var target = this.target;
 
-        if(target.towerPanel&&target.towerPanel.selectedTowerName==""){
-            
+        //面板已经展开则创建塔，否则尝试创建面板
+        if (target.towerPanel && target.towerPanel.selectedTowerName == "") {
+            var selectedName = target.towerPanel.selectedTowerName;
+            target.addTower(selectedName, target.towerPanel.getPosition());
+            target.removeChild(target.towerPanel);
+            target.towerPanel = null;
+        }else{
+            if(target.towerPanel){
+                target.towerPanel.removeFromParent();
+                target.towerPanel=null;
+            }
+            var location = touch.getLocation();
+            target.onCanShowPanel(location);
         }
-
+        return true;
     },
     onTouchMoved: function (touch, event) {
 
     },
     onTouchEnded: function (touch, event) {
+
+    },
+    /* 检测是否可以显示面板 */
+    onCanShowPanel:function(pos){
 
     },
     /* 碰撞检测，即射程与敌人交叠则攻击，此处范围先作为矩形存在,后面可以将射程属性化 */
