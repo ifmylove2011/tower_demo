@@ -21,7 +21,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.updatePosArray();
         this.isGamePass();
         this.addTouchListener();
-        this.schedule(this.addEnemy);
+        this.schedule(this.addEnemy,1);
         this.scheduleUpdate();
         return true;
     },
@@ -68,7 +68,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
         var posObjs = this.posArray.getObjects();
         for (var i in posObjs) {
             var pos = cc.p(posObjs[i].x - offset, posObjs[i].y);
-            //trace("各点位置", pos.x, pos.y);
+            trace("各点位置", pos.x, pos.y);
             posArray.push(pos);
         }
         this.gm.setPosArray(posArray);
@@ -88,17 +88,22 @@ var GamePlayTouchLayer = cc.Layer.extend({
             var maxHp = 0;
 
             if (groupEnemy.type1Num > 0) {
+                enemy=new ThiefEnemy();
                 maxHp = groupEnemy.type1Hp;
                 groupEnemy.type1Num--;
             } else if (groupEnemy.type2Num > 0) {
+                enemy=new PirateEnemy();
                 maxHp = groupEnemy.type2Hp;
                 groupEnemy.type2Num--;
             } else if (groupEnemy.type3Num > 0) {
+                enemy=new BanditEnemy();
                 maxHp = groupEnemy.type3Hp;
                 groupEnemy.type3Num--;
             } else {
                 trace("clear");
             }
+
+            //说好的音效！~
 
             this.addChild(enemy);
 
@@ -124,7 +129,43 @@ var GamePlayTouchLayer = cc.Layer.extend({
     },
     /* 添加塔 */
     addTower: function (type, pos) {
+        var tower = null;
+        switch (type) {
+            case "arrow":
+                tower = new ArrowTower();
+                break;
+            case "attack":
+                tower = new AttackTower();
+                break;
+            case "screen":
+                tower = new ScreenTower;
+                break;
+            default :
+                tower = new ArrowTower();
+                break;
+        }
 
+        //没钱
+        if(this.gm.getCurMoney()<tower.getMoney()){
+            var noMoney = new cc.Sprite("#gp_noMoney.png");
+            noMoney.setPosition(pos);
+            this.addChild(noMoney);
+            this.scheduleOnce(function(){
+                this.removeChild(noMoney);
+            }, 0.5);
+            tower = null;
+            return;
+        }
+
+        // 建塔，扣钱
+        this.addChild(tower);
+        tower.setPosition(pos);
+        this.toolPanel.onMinusMoney(tower.getMoney());
+
+        //标明地块的索引序列
+        var matrixCoord = this.convertToMatrixCoord(pos);
+        var matrixIndex = parseInt(matrixCoord.y * GC.MapWidth + matrixCoord.x);
+        this.towerState[matrixIndex] = 1;
     },
     /* 处理游戏逻辑 */
     update: function () {
@@ -147,17 +188,20 @@ var GamePlayTouchLayer = cc.Layer.extend({
         var target = this.target;
 
         //面板已经展开则创建塔，否则尝试创建面板
-        if (target.towerPanel && target.towerPanel.selectedTowerName == "") {
+        if (target.towerPanel && target.towerPanel.selectedTowerName !== "") {
             var selectedName = target.towerPanel.selectedTowerName;
             target.addTower(selectedName, target.towerPanel.getPosition());
             target.removeChild(target.towerPanel);
             target.towerPanel = null;
-        }else{
-            if(target.towerPanel){
+        } else {
+            if (target.towerPanel) {
                 target.towerPanel.removeFromParent();
-                target.towerPanel=null;
+                target.towerPanel = null;
             }
             var location = touch.getLocation();
+
+            trace("点击的位置",location.x,location.y);
+
             target.onCanShowPanel(location);
         }
         return true;
@@ -169,8 +213,43 @@ var GamePlayTouchLayer = cc.Layer.extend({
 
     },
     /* 检测是否可以显示面板 */
-    onCanShowPanel:function(pos){
+    onCanShowPanel: function (pos) {
+        var towerCoord = this.convertTotileCoord(pos);
+        // tiledMap中的每一个瓦片来，都有一个全局标识量GID，GID范围从正整数1开始到瓦片地图中瓦片的总量
+        var gid = this.bgLayer.getTileGIDAt(towerCoord); //地图坐标gid
+        // 获取出来的瓦片地图
+        var tileTemp =this.map.getPropertiesForGID(gid);
 
+        // 当前触摸的[点]转为【地图[数组]坐标】
+        // TODO 地图【数组】起点(0, 0)在左【下】角
+        var matrixCoord = this.convertToMatrixCoord(pos);
+        // 数组索引
+        var matrixIndex = parseInt(matrixCoord.y * GC.MapWidth + matrixCoord.x);
+        var touchVaule = 0;
+        if (tileTemp != null){ //假如不能触摸
+            touchVaule = tileTemp.canTouch;
+        }
+        var tileWidth = this.map.getContentSize().width / this.map.getMapSize().width;
+        var tileHeight = this.map.getContentSize().height / this.map.getMapSize().height;
+
+        var towerPos = cc.p((towerCoord.x * tileWidth) + tileWidth / 2 - this.offset,
+            this.map.getContentSize().height - (towerCoord.y * tileHeight) - tileHeight/2);
+
+        if (touchVaule == 1 && this.towerState[matrixIndex] == 0){
+            this.addTowerChoosePanel(towerPos);
+        }else{
+            var tips = new cc.Sprite("#gp_no.png");
+            tips.setPosition(towerPos);
+            this.addChild(tips);
+            this.scheduleOnce(function(){
+                this.removeChild(tips);
+            }, 1);
+        }
+    },
+    addTowerChoosePanel:function(pos){
+        this.towerPanel = new TowerPanel();
+        this.addChild(this.towerPanel);
+        this.towerPanel.setPosition(pos);
     },
     /* 碰撞检测，即射程与敌人交叠则攻击，此处范围先作为矩形存在,后面可以将射程属性化 */
     collisionDetection: function () {
@@ -185,22 +264,27 @@ var GamePlayTouchLayer = cc.Layer.extend({
             var bullet = bulletArray[i];
             //转换为世界坐标
             var bulletPos = bullet.getParent().convertToWorldSpace(bullet.getPosition());
-            var bulletRange = cc.rect(bulletPos.x - bullet.getContentSize().width / 2, bulletPos.y - bullet.getContentSize().height / 2, bullet.getContentSize().width, bullet.getContentSize().height);
-        }
+            var bulletRange = cc.rect(
+                bulletPos.x - bullet.getContentSize().width / 2,
+                bulletPos.y - bullet.getContentSize().height / 2,
+                bullet.getContentSize().width,
+                bullet.getContentSize().height);
 
-        //获取敌人信息，活动范围
-        for (var i = 0; i < enemyArray.length; i++) {
-            var enemy = enemyArray[i];
-            var enemyRange = cc.rect(enemy.getPositionX() - enemy.getContentSize().width / 2,
-                enemy.getPositionY() - enemy.getContentSize().height / 2,
-                enemy.getContentSize().width,
-                enemy.getContentSize().height);
-        }
+            //获取敌人信息，活动范围
+            for (var j = 0; j < enemyArray.length;j++) {
+                var enemy = enemyArray[j];
+                var enemyRange = cc.rect(
+                    enemy.getPositionX() - enemy.getContentSize().width / 2,
+                    enemy.getPositionY() - enemy.getContentSize().height / 2,
+                    enemy.getContentSize().width,
+                    enemy.getContentSize().height);
 
-        //敌人在射程内，just beat it!
-        if (cc.rectIntersectsRect(bulletRange, enemyRange)) {
-            enemy.onHurt(bullet.getAttackValue());//敌人受伤回调
-            bullet.setIsDie(true);//子弹失效
+                //敌人在射程内，just beat it!
+                if (cc.rectIntersectsRect(bulletRange, enemyRange)) {
+                    enemy.onHurt(bullet.getAttackValue());//敌人受伤回调
+                    bullet.setIsDie(true);//子弹失效
+                }
+            }
         }
     },
     /* 清扫战场，包括清理失效弹药与已挂敌人 */
@@ -277,5 +361,18 @@ var GamePlayTouchLayer = cc.Layer.extend({
 
         var layer = new GamePassLayer();
         this.addChild(layer, 10);
+    },
+    convertTotileCoord : function(pos){
+        var x = (pos.x + this.offset)/ this.map.getContentSize().width * this.map.getMapSize().width;
+        var y = this.map.getMapSize().height- pos.y / this.map.getContentSize().height * this.map.getMapSize().height;
+
+        trace("this.map.getContentSize()", this.map.getContentSize());   // 1536 * 864
+        trace("this.map.getMapSize()", this.map.getMapSize());           // 16 * 9
+        return cc.p(parseInt(x), parseInt(y));
+    },
+    convertToMatrixCoord : function(pos){
+        var x = (pos.x + this.offset) / this.map.getContentSize().width * this.map.getMapSize().width;
+        var y = pos.y / this.map.getContentSize().height * this.map.getMapSize().height;
+        return cc.p(parseInt(x), parseInt(y));
     }
 });

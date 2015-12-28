@@ -15,30 +15,30 @@
 			<key>1</key>
 			<dict>
 				<key>type_1_num</key>
-				<integer>10</integer>
+				<integer>1</integer>
 				<key>type_1_hp</key>
 				<integer>3</integer>
 				<key>type_2_num</key>
-				<integer>5</integer>
+				<integer>0</integer>
 				<key>type_2_hp</key>
 				<integer>2</integer>
 				<key>type_3_num</key>
-				<integer>5</integer>
+				<integer>0</integer>
 				<key>type_3_hp</key>
 				<integer>1</integer>
 			</dict>
 			<key>2</key>
 			<dict>
 				<key>type_1_num</key>
-				<integer>3</integer>
+				<integer>0</integer>
 				<key>type_1_hp</key>
 				<integer>3</integer>
 				<key>type_2_num</key>
-				<integer>4</integer>
+				<integer>0</integer>
 				<key>type_2_hp</key>
 				<integer>2</integer>
 				<key>type_3_num</key>
-				<integer>5</integer>
+				<integer>0</integer>
 				<key>type_3_hp</key>
 				<integer>1</integer>
 			</dict>

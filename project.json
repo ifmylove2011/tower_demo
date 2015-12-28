@@ -34,6 +34,10 @@
     "src/Elements/Enemy/PirateEnemy.js",
     "src/Elements/Enemy/ThiefEnemy.js",
     "src/Elements/Enemy/BanditEnemy.js",
+    "src/Elements/Tower/TowerSprite.js",
+    "src/Elements/Tower/ArrowTower.js",
+    "src/Elements/Tower/AttackTower.js",
+    "src/Elements/Tower/ScreenTower.js",
     "src/Elements/Bullet.js",
 
     "src/LevelPanel/LevelPanel.js",

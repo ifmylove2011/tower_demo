@@ -6,7 +6,7 @@
 var EnemySprite = cc.Sprite.extend({
     hp: 0,
     maxHp: 0,
-    speed: 400,
+    speed: 200,
     direction: 0,
     posArray: [],
     curPosIndex: 0,
@@ -26,8 +26,8 @@ var EnemySprite = cc.Sprite.extend({
     },
     /* 载入敌人移动点坐标 */
     initConfig: function () {
-        var instance = GameManager.getInstance();
-        this.posArray = instance.getPosArray();
+        var gm = GameManager.getInstance();
+        this.posArray = gm.getPosArray();
     },
     /* 初始化敌人位置 */
     initPosition: function () {
@@ -56,16 +56,18 @@ var EnemySprite = cc.Sprite.extend({
         //敌人到达终点
         if (this.curPosIndex == this.posArray.length - 1) {
             this.isSucceed = true;
-            (this.beAttackedCallback && typeof(this.beAttackedCallback) === "function" && this.beAttackedCallback());
+            (this.attackSucceedCallback && typeof(this.attackSucceedCallback) === "function" && this.attackSucceedCallback());
             return;
         }
 
         //下一坐标
         var nextPos = this.posArray[this.curPosIndex + 1];
         //得到现有坐标与下一坐标之间的距离
-        var distance = cc.pDistance(this.getPosition, nextPos);
+        var distance = cc.pDistance(this.getPosition(), nextPos);
         //算出移动一段距离所需要的时间
         var time = distance / this.speed;
+
+        trace("当前路径",this.curPosIndex,nextPos.x,nextPos.y);
 
         //移动的动作
         var move = cc.moveTo(time, nextPos);
@@ -76,7 +78,9 @@ var EnemySprite = cc.Sprite.extend({
 
         //方向判断
         this.direction = nextPos.x - this.x >= 0 ? 0 : 1;
-        this.changeDirection(this.direction);
+        //this.changeDirection(this.direction);
+
+        this.loadAnimation(this.dir);
 
         //坐标下标前进
         this.curPosIndex++;
@@ -84,6 +88,9 @@ var EnemySprite = cc.Sprite.extend({
     /* 改变方向--子类使用 */
     changeDirection: function (direciton) {
         //用于扩展
+    },
+    loadAnimation:function(dir){
+        //rewrite
     },
     /* 受伤回调 */
     onHurt: function (hurt) {
