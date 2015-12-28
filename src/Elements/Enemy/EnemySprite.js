@@ -56,7 +56,7 @@ var EnemySprite = cc.Sprite.extend({
         //敌人到达终点
         if (this.curPosIndex == this.posArray.length - 1) {
             this.isSucceed = true;
-            (this.attackSucceedCallback && typeof(this.attackSucceedCallback) === "function" && this.attackSucceedCallback());
+            (this.attackSucceedCallback && typeof(this.attackSucceedCallback) === "function" )&& this.attackSucceedCallback();
             return;
         }
 
@@ -78,16 +78,19 @@ var EnemySprite = cc.Sprite.extend({
 
         //方向判断
         this.direction = nextPos.x - this.x >= 0 ? 0 : 1;
-        //this.changeDirection(this.direction);
+        this.onChangeDirection();
 
-        this.loadAnimation(this.dir);
+        //this.loadAnimation(this.direction);
 
         //坐标下标前进
-        this.curPosIndex++;
+        //this.curPosIndex++;
+
+        //类似在跳跃前进，跨坐标
     },
     /* 改变方向--子类使用 */
-    changeDirection: function (direciton) {
+    onChangeDirection: function () {
         //用于扩展
+        this.loadAnimation(this.direction);
     },
     loadAnimation:function(dir){
         //rewrite

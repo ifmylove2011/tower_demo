@@ -63,7 +63,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
     /* 修改偏移量，初始化坐标点*/
     updatePosArray: function () {
         var offset = (this.map.getContentSize().width - GC.w) / 2;
-        trace("偏移量", offset);
+        trace("地图宽度",this.map.getContentSize().width,"窗口宽度",GC.w,"偏移量", offset);
         var posArray = new Array();
         var posObjs = this.posArray.getObjects();
         for (var i in posObjs) {
@@ -366,8 +366,8 @@ var GamePlayTouchLayer = cc.Layer.extend({
         var x = (pos.x + this.offset)/ this.map.getContentSize().width * this.map.getMapSize().width;
         var y = this.map.getMapSize().height- pos.y / this.map.getContentSize().height * this.map.getMapSize().height;
 
-        trace("this.map.getContentSize()", this.map.getContentSize());   // 1536 * 864
-        trace("this.map.getMapSize()", this.map.getMapSize());           // 16 * 9
+        trace("this.map.getContentSize()", this.map.getContentSize().height);   // 1536 * 864
+        trace("this.map.getMapSize()", this.map.getMapSize().height);           // 16 * 9
         return cc.p(parseInt(x), parseInt(y));
     },
     convertToMatrixCoord : function(pos){
