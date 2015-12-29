@@ -4,7 +4,7 @@
 
 var BanditEnemy = EnemySprite.extend({
     ctor:function(){
-        this._super("#enemyRight2_1.png");
+        this._super("#hero_3R.png");
         this.loadConfig();
         return true;
     },
@@ -15,13 +15,13 @@ var BanditEnemy = EnemySprite.extend({
     loadAnimation : function(dir){
         this.stopActionByTag(998);
         var frames = [];
-        for (var i = 1; i <= 4; i++) {
-            var prefix = dir == 0 ? "enemyRight3_" : "enemyLeft3_";
+        for (var i = 1; i <= 3; i++) {
+            var prefix = dir == 0 ? "hero_3L_" : "hero_3R_";
             var str = prefix + i + ".png";
             var frame = cc.spriteFrameCache.getSpriteFrame(str);
             frames.push(frame);
         }
-        var animation = new cc.Animation(frames, 0.1);
+        var animation = new cc.Animation(frames, 0.5);
         var animate = cc.animate(animation).repeatForever();
         animate.tag = 998;
         this.runAction(animate);
@@ -29,8 +29,8 @@ var BanditEnemy = EnemySprite.extend({
     onExpload : function(){
         this._super();
         var frames = [];
-        for (var i = 1; i <= 6; i++) {
-            var prefix = "explode3_";
+        for (var i = 1; i <= 3; i++) {
+            var prefix = "explode_";
             var str = prefix + i + ".png";
             var frame = cc.spriteFrameCache.getSpriteFrame(str);
             frames.push(frame);

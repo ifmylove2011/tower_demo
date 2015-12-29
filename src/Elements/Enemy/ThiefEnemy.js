@@ -4,7 +4,7 @@
 
 var ThiefEnemy = EnemySprite.extend({
     ctor:function(){
-        this._super("#enemyRight1_1.png");
+        this._super("#hero_1R.png");
         this.loadConfig();
         return true;
     },
@@ -15,8 +15,8 @@ var ThiefEnemy = EnemySprite.extend({
     loadAnimation : function(dir){
         this.stopActionByTag(998);
         var frames = [];
-        for (var i = 1; i <= 4; i++) {
-            var prefix = dir == 0 ? "enemyRight1_" : "enemyLeft1_";
+        for (var i = 1; i <= 3; i++) {
+            var prefix = dir == 0 ? "hero_1L_" : "hero_1R_";
             var str = prefix + i + ".png";
             var frame = cc.spriteFrameCache.getSpriteFrame(str);
             frames.push(frame);
@@ -29,8 +29,8 @@ var ThiefEnemy = EnemySprite.extend({
     onExpload : function(){
         this._super();
         var frames = [];
-        for (var i = 1; i <= 6; i++) {
-            var prefix = "explode1_";
+        for (var i = 1; i <= 3; i++) {
+            var prefix = "explode_";
             var str = prefix + i + ".png";
             var frame = cc.spriteFrameCache.getSpriteFrame(str);
             frames.push(frame);

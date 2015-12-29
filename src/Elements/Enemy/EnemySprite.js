@@ -68,7 +68,8 @@ var EnemySprite = cc.Sprite.extend({
         var time = distance / this.speed;
 
         trace("当前路径",this.curPosIndex,nextPos.x,nextPos.y);
-
+        trace("需要用时",time,"距离",distance);
+        trace("当前位置",this.x,this.y);
         //移动的动作
         var move = cc.moveTo(time, nextPos);
         var call = cc.callFunc(this.movePos, this);
@@ -78,9 +79,9 @@ var EnemySprite = cc.Sprite.extend({
 
         //方向判断
         this.direction = nextPos.x - this.x >= 0 ? 0 : 1;
-        this.onChangeDirection();
+        //this.onChangeDirection();
 
-        //this.loadAnimation(this.direction);
+        this.loadAnimation(this.direction);
 
         //坐标下标前进
         //this.curPosIndex++;
