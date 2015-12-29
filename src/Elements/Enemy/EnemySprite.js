@@ -69,24 +69,26 @@ var EnemySprite = cc.Sprite.extend({
 
         trace("当前路径",this.curPosIndex,nextPos.x,nextPos.y);
         trace("需要用时",time,"距离",distance);
-        trace("当前位置",this.x,this.y);
         //移动的动作
         var move = cc.moveTo(time, nextPos);
-        var call = cc.callFunc(this.movePos, this);
+        this.runAction(move);
+        //var call = cc.callFunc(this.movePos, this);
         //回调本方法，使精灵连续动作
-        var action = cc.sequence(move, call);
-        this.runAction(action);
-
+        //var action = cc.sequence(move, call);
+        trace("当前位置",this.x,this.y);
         //方向判断
         this.direction = nextPos.x - this.x >= 0 ? 0 : 1;
-        //this.onChangeDirection();
 
-        this.loadAnimation(this.direction);
+        this.onChangeDirection();
+
+        //this.loadAnimation(this.direction);
 
         //坐标下标前进
-        //this.curPosIndex++;
+        this.curPosIndex++;
 
         //类似在跳跃前进，跨坐标
+
+        //另一个问题，当坐标只有1个时，为什么会来回动
     },
     /* 改变方向--子类使用 */
     onChangeDirection: function () {
@@ -113,6 +115,7 @@ var EnemySprite = cc.Sprite.extend({
     /* 死亡特效--子类使用 */
     ruinEffect: function () {
         this.hpBarBg.setVisible(false);
+        this.setAnchorPoint(0.5, 0.25);
     },
     /* 初始血量 */
     setMaxHp: function (hp) {

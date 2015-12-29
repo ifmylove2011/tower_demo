@@ -74,6 +74,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
         this.gm.setPosArray(posArray);
 
         this.offset = offset;
+        GC.offset = offset;
     },
     /* 添加敌人 */
     addEnemy: function () {
