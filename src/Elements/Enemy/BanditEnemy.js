@@ -5,10 +5,10 @@
 var BanditEnemy = EnemySprite.extend({
     ctor:function(){
         this._super("#hero_3R.png");
-        this.loadConfig();
+        this.initConfig();
         return true;
     },
-    loadConfig:function(){
+    initConfig:function(){
         this._super();
         this.money = 800;
     },
@@ -26,7 +26,7 @@ var BanditEnemy = EnemySprite.extend({
         animate.tag = 998;
         this.runAction(animate);
     },
-    onExpload : function(){
+    ruinEffect : function(){
         this._super();
         var frames = [];
         for (var i = 1; i <= 3; i++) {

@@ -5,11 +5,11 @@
 var ScreenTower = TowerSprite.extend({
     ctor: function () {
         this._super("#gp_multiDirTower.png");
-        this.loadConfig();
+        this.initConfig();
         this.schedule(this.shoot, 0.2);
     },
     /* 参数初始化 */
-    loadConfig: function () {
+    initConfig: function () {
         this._super();
         this.range = 120;
         this.attack = 2;
@@ -39,7 +39,7 @@ var ScreenTower = TowerSprite.extend({
                 var overshotVector = cc.pMult(normalizedShootVector, farthestDistance);
                 var offscreenPoint = cc.pSub(curBullet.getPosition(), overshotVector);
 
-                var move = cc.moveTo(this.bulletSpeed, offscreenPoint);
+                var move = cc.moveTo(this.speed, offscreenPoint);
                 var callback = cc.callFunc(this.removeBullet, this);
                 var action = cc.sequence(move, callback);
                 curBullet.runAction(action);

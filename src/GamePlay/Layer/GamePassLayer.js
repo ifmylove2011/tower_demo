@@ -5,7 +5,7 @@
 
 var GamePassLayer = cc.Layer.extend({
     ctor: function () {
-        this._super();
+        this._super(cc.color(0, 0, 0, 138));
         this.addPanel();
         this.addMenu();
         return true;

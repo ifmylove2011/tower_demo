@@ -15,10 +15,10 @@
  </tileset>
  <layer name="bg" width="32" height="18">
   <properties>
-   <property name="canTouch" value=""/>
+   <property name="canTouch" value="1"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzFlktPwzAQhM0rEhSQIAW5GFzBAdoegP//6xhLGbEaNusekHL45DZe73McZUwpjQuzXXBtnIBTkAPWAW3/FbyB0rFPxpb1X4KrwHeW35pXW/fgIPE92yS2W7Gp4qNM0N8ZOJ/ytnGKOafPq3lWhbETn3b0twLXM33xeufV8wLuwL2pP5ptFn9q35tRlvjPYAOenD5GZ9nPaL5tHYKa7Dzt/NX/nO8q/6nlY3O082wr9RT1dy2+38EH2KVfLWv9VrPMcZiw8amnY3Jnfp/gC3yDiwnvLujdZHybv/a/yj77VdJfLWcT357R+tljxrf5e/fY7vf0wPjeGb2zjM89vn8jffX04OlvcHwUx5bv30i7PT14+vN8VMfWq7933xo34DaYidbvnfHqn7tvuv8AHv/hDOtf8hvgB5OtNRc=
+   eJzFlktPwzAQhM0rEhSQIAW5GFzBAdoegP//6xhLGbEaNusekHL45DZe73McZUwpjQuzXXBtnIBTkAPWAW3/FbyB0rFPxpb1X4KrwHeW35pXW/fgIPE92yS2W7Gp4qNM0N8ZOJ/ytnGKOafPq3lWhbETn3b0twLXM33xeufV8wLuwL2pP5ptFn9q35tRlvjPYAOenD5GZ9nPaL5tHYKa7Dzt/NX/nO8q/6nlY3O082wr9RT1dy2+38EH2KVfLWv9VrPMcZiw8amnY3Jnfp/gC3yDiwnvLujdZHybv/a/yj77VdJfLWeJzzNaP3vM+DZ/7x7b/Z4eGN87o3eW8bnH92+kr54ePP0Njo/i2PL9G2m3pwdPf56P6th69ffuW+MG3AYz0fq9M179c/dN9x/A4z+cYf1LfgP8AGadNQk=
   </data>
  </layer>
  <objectgroup name="obj">

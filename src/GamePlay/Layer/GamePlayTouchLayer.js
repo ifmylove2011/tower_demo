@@ -79,6 +79,8 @@ var GamePlayTouchLayer = cc.Layer.extend({
     /* 添加敌人 */
     addEnemy: function () {
         var groupArray = this.gm.getGroupArray();
+        var groupNum = this.gm.getGroupNum();
+        trace("当前波数索引",this.curGroupIndex);
         var groupEnemy = groupArray[this.curGroupIndex];
 
         var enemy = null;
@@ -112,19 +114,21 @@ var GamePlayTouchLayer = cc.Layer.extend({
             enemy.setAttackSucceedCallback(this.enemyPass.bind(this));
             enemy.setMaxHp(maxHp);
         } else {
-            this.curGroupIndex++;
-
             //工具条显示变动
+
             if (this.curGroupIndex < groupArray.length) {
                 var label = this.toolPanel.getGroupIndexLabel();
                 label.setString((this.curGroupIndex + 1) + " ");
             }
-
             //敌人添加完毕
+
             if (this.curGroupIndex == groupArray.length - 1) {
+                trace("敌人悉数出动");
                 this.gm.setIsAddFinished(true);
                 this.unschedule(this.addEnemy);
             }
+
+            this.curGroupIndex++;
         }
 
     },
@@ -293,9 +297,11 @@ var GamePlayTouchLayer = cc.Layer.extend({
         //清理失效敌人
         var enemyArray = this.gm.getEnemyArray();
 
+        //状态赋值有问题
         for (var i = 0; i < enemyArray.length; i++) {
             var enemy = enemyArray[i];
             if (enemy.isDie) {
+                trace("敌人毁灭？");
                 enemyArray.splice(i, 1); //删除当前一项
                 enemy.removeFromParent();
                 //加钱
@@ -311,6 +317,7 @@ var GamePlayTouchLayer = cc.Layer.extend({
         for (var i = 0; i < bulletArray.length; i++) {
             var bullet = bulletArray[i];
             if (bullet.isDie) {
+                trace("子弹毁灭？");
                 bullet.removeFromParent();
                 bulletArray.splice(i, 1);
             }
@@ -343,7 +350,9 @@ var GamePlayTouchLayer = cc.Layer.extend({
     },
     /* 判断是否过关 */
     isGamePass: function () {
-        if (this.curGroupIndex == this.gm.getGroupArray().length - 1 && this.gm.getIsAddFinished() && this.gm.getEnemyArray().length == 0) {
+        trace("当前波数",this.curGroupIndex,"波数",this.gm.getGroupArray().length,"当前敌人添加是否添加完毕",this.gm.getIsAddFinished(),"敌人数量",this.gm.getEnemyArray().length);
+        if (this.curGroupIndex == this.gm.getGroupArray().length  && this.gm.getIsAddFinished() && this.gm.getEnemyArray().length == 0) {
+            trace("达到通关条件？");
             this.gm.clear();
             this.onGamePass();
             return;

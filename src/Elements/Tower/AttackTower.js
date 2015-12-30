@@ -5,11 +5,11 @@
 var AttackTower = TowerSprite.extend({
     ctor: function () {
         this._super("#gp_attackTower.png");
-        this.loadConfig();
+        this.initConfig();
         this.schedule(this.shoot, 0.8);
     },
     /* 参数初始化 */
-    loadConfig: function () {
+    initConfig: function () {
         this._super();
         this.attack = 2;
         this.range = 500;
@@ -41,7 +41,7 @@ var AttackTower = TowerSprite.extend({
             curBullet.runAction(action);
         }
     },
-    /* 创建弹药 */
+    /* 装填弹药 */
     createTowerBullet: function () {
         var sprite = new Bullet("#gp_bullet.png");
         sprite.attr({

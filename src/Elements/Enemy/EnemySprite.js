@@ -71,11 +71,11 @@ var EnemySprite = cc.Sprite.extend({
         trace("需要用时",time,"距离",distance);
         //移动的动作
         var move = cc.moveTo(time, nextPos);
-        this.runAction(move);
-        //var call = cc.callFunc(this.movePos, this);
+        var call = cc.callFunc(this.movePos, this);
         //回调本方法，使精灵连续动作
-        //var action = cc.sequence(move, call);
-        trace("当前位置",this.x,this.y);
+        var action = cc.sequence(move, call);
+        this.runAction(action);
+        trace("当前位置",this.getPosition().x,this.getPosition().y);
         //方向判断
         this.direction = nextPos.x - this.x >= 0 ? 0 : 1;
 

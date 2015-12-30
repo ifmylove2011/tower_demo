@@ -7,13 +7,13 @@ var ArrowTower = TowerSprite.extend({
     rotate: null,
     ctor: function () {
         this._super();
-        this.loadConfig();
+        this.initConfig();
         this.loadBed();
         this.loadRotate();
         this.schedule(this.onRotateAndShoot, 0.5);
     },
     /* 参数初始化 */
-    loadConfig: function () {
+    initConfig: function () {
         this._super();
         this.attack = 2;
         this.range = 120;
@@ -40,8 +40,11 @@ var ArrowTower = TowerSprite.extend({
         this.findNearestEnemy();
         if (this.nearestEnemy != null) {
             var rotateBase = cc.pSub(this.nearestEnemy.getPosition(), this.getPosition());
+            trace("旋转参量",rotateBase);
             var rotateRadians = cc.pToAngle(rotateBase);
+            trace("旋转角度",rotateRadians);
             var rotateDegrees = cc.radiansToDegrees(-1 * rotateRadians);
+            trace("旋转度数",rotateDegrees);
 
             // speed表示炮塔旋转的速度，0.5 / M_PI其实就是 1 / 2PI，它表示1秒钟旋转1个圆
             var speed = 0.5 / cc.PI;
@@ -65,22 +68,27 @@ var ArrowTower = TowerSprite.extend({
             this.addChild(curBullet);
             gm.bulletArray.push(curBullet);
 
+            //求向量--【敌人指向塔】
             var shootVector = cc.pNormalize(cc.pSub(this.nearestEnemy.getPosition(), this.getPosition()));
+            trace("敌人指向塔:",shootVector);
+            //向量求负--弹药发射方向为【塔指向敌人】
             var normalizedShootVector = cc.pNeg(shootVector);
+            trace("弹药发射方向:",normalizedShootVector);
 
             var farthestDistance = GC.w;
             var overshotVector = cc.pMult(normalizedShootVector, farthestDistance);
+            trace("overshotVector:",overshotVector);
             var offscreenPoint = cc.pSub(this.rotate.getPosition(), overshotVector);
+            trace("目标",offscreenPoint);
 
-            trace("offscreenPoint", offscreenPoint);
-
-            var move = cc.moveTo(this.bulletSpeed, offscreenPoint);
+            //【弹道】
+            var move = cc.moveTo(this.speed, offscreenPoint);
             var callback = cc.callFunc(this.removeBullet, this);
             var action = cc.sequence(move, callback);
             curBullet.runAction(action);
         }
     },
-    /* 创建弹药 */
+    /* 装填弹药 */
     createTowerBullet: function () {
         var sprite = new Bullet("#gp_arrowBullet.png");
         sprite.setAttackValue(this.attack);

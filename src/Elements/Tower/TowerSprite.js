@@ -1,6 +1,6 @@
 /**
  * Created by XTER on 2015/12/24.
- * Ëþ»ùÀà
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 
 var TowerSprite = cc.Sprite.extend({
@@ -9,13 +9,13 @@ var TowerSprite = cc.Sprite.extend({
     speed: 0,
     rate: 0,
     money: 0,
-    nearestEnemy: 0,
-    ctor: function () {
-        this._super();
-        this.loadConfig();
+    nearestEnemy: null,
+    ctor: function (texture) {
+        this._super(texture);
+        this.initConfig();
         return true;
     },
-    loadConfig: function () {
+    initConfig: function () {
 
     },
     findNearestEnemy: function () {
